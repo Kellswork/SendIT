@@ -1,0 +1,102 @@
+.account-container {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 0px 0px 4px 1px #00000078;
+  overflow: hidden;
+}
+.account-img {
+  text-align: center;
+  background-image: linear-gradient(to bottom, #37393b, #5b6264, #838e8d, #b1bcb5, #e7ebde);
+  padding: 2%;
+}
+.account-img img {
+  border-radius: 50%;
+  width: 225px;
+  height: 225px;
+}
+
+.account-info {
+  display: flex;
+  min-height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #C8C8C8;
+  box-sizing: border-box;
+}
+.account-delivered {
+  width: 50%;
+  text-align: center;
+  border-right: 1px solid #C8C8C8;
+}
+
+.account-in-transit {
+  width: 50%;
+  text-align: center;
+}
+.account-delivered, .account-in-transit {
+  padding-top: 10px;
+  padding-bottom: 10px;
+} 
+.account-delivered p span, .account-in-transit p span {
+  margin-top: 10px;
+  display: block;
+}
+.account-details {
+  min-height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.account-data {
+  box-sizing: border-box;
+  padding: 0px 50px;
+}
+
+.account-data-value {
+  float: right;
+}
+.account-data-value .far {
+  font-size: 14px;
+  padding-left: 5px;
+}
+.orders {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.account-order-details {
+  width: 100%;
+  text-align: left;
+  padding: 0px 40px;
+}
+table {
+  border-spacing: 0px;
+}
+tr:nth-child(even){
+  background: rgb(223, 219, 219);
+}
+
+hr {
+  margin-top: 25px !important;
+}
+@media (max-width:760px) {
+.orders {
+   width: 100%;
+}
+.orders h3 {
+  padding-left: 5px;
+}
+.account-details {
+  width: 95%;
+}
+.account-data {
+  padding: 0px;
+}
+.account-order-details {
+  padding: 0px;
+}
+.pagination a {
+  font-size: 15px;
+}
+}

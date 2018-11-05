@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Profile | SendIT </title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/order.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1 class='logo'>
+        Send<span>IT</span>
+      </h1>
+      <div class="profile">
+        <div class="profile-img">
+          <img src="img/avatar-2.jpg" alt="image placeholder">
+          <div class="dropdown-content">
+              <a href="profile.html">Profile</a>
+              <a href="order.html">Orders</a>
+              <a href="login.html">Logout</a>
+            </div>
+        </div>
+        <a href="http:index.html"><i class="fas fa-home"></i></a>
+        <i class="fas fa-bell"></i>
+      </div>
+    </header>
+
+    <section class="box-one">
+      <div class="create-order">
+        <a href="createorder.html" class="create-order-button">Click To Create New Order</a>
+      </div>
+
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input class='search-input' type="text" placeholder="Search..." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="account-container">
+      <div class="account">
+        <div class="account-img">
+          <img src="img/avatar-2.jpg" alt="profile picture">
+          <h1>Welcome KELECHI</h1>
+        </div>
+        <div class="account-info">
+          <div class="account-delivered">
+            <p>delivered<br><span>10</span></p>
+          </div>
+          <div class="account-in-transit">
+            <p>In Transit<br><span>3</span> </p>
+          </div>
+
+        </div>
+        <div class="account-details">
+          <h3>Personal Details</h3>
+          <div class="account-data">
+            <p><span class="account-data-type">Name</span> <span class="account-data-value">Kelechi Ogbonna <i class="far fa-edit"></i></span></p>
+            <p><span class="account-data-type">Email</span> <span class="account-data-value">Kellogbonna@gmail.com <i class="far fa-edit"></i></span></p>
+            <p> <span class="account-data-type">password</span> <span class="account-data-value">****** <i class="far fa-edit"></i></span></p> 
+          </div>
+      
+        </div>
+
+      </div>
+      <hr>
+      <div class="orders">
+        <h3>Order Details</h3>
+        <table class="account-order-details">
+          <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>#12333</td>
+            <td>20-12-2018</td>
+            <td>N2000</td>
+            <td>In transit</td>
+            <td><a href="#" onclick="alert('Im here too')">Order details</a></td>
+          </tr>
+          <tr>
+            <td>#12333</td>
+            <td>20-12-2018</td>
+            <td>N2000</td>
+            <td>In transit</td>
+            <td><a href="#" onclick="alert('this is me')">Order details</a></td>
+          </tr>
+        </table>
+        <div class="pagination">
+          <a href="#"><i class="fas fa-angle-double-right"></i></a>
+          <a href="#"><i class="fas fa-angle-double-left"></i></a>
+        </div>
+      </div>
+    </section>
+  </section>
+  <footer class='profile-footer'>
+    <p>copyright &copy;Andela boot-camp project 2018</p>
+  </footer>
+  </div>
+
+
+  </div>
+
+  <div>
+
+</body>
+
+</html>
