@@ -202,14 +202,29 @@ position: absolute;
 }
 .notification {
   width: 30%;
-  height: 250px;
-  border: 1px solid black;
+  min-height: 250px;
+  border: 1px solid rgba(0, 52, 104, 0.13);
   padding-left: 7px;
   text-align: left;
   padding-right: 5px;
+  box-shadow: 0px 0px 2px 1px #00346833
 }
 .notification h3 {
   text-align: center;
+}
+.notification p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 52, 104, 0.13);
+  position: relative;
+}
+.notification p::before {
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 900;
+  padding-right: 9px;
+  color: #003468;
 }
 .my-order {
   width: 65%;
@@ -485,5 +500,12 @@ th {
 }
 .content form {
   width: 90%;
+}
+.content {
+  display: block;
+  width: 95%;
+}
+.my-order {
+  width: 100%;
 }
 }
