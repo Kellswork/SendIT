@@ -294,6 +294,10 @@ td a:hover {
   padding-right: 2%;
   
 }
+
+.new-order h1 {
+  font-size: 34px;
+}
 .new-order h3 {
   padding-top:8px;  
   padding-bottom:8px; 

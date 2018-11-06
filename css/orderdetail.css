@@ -2,7 +2,7 @@
   width: 60%;
 }
 
-.pickup-info, .destination-info, .payment-info, .product-info {
+.pickup-info, .destination-info, .payment-info, .product-info, .status {
   background: white;
   margin-bottom: 10px;
   box-shadow: 0px 0px 2px 0px;
@@ -10,7 +10,7 @@
   padding-right: 25px;
 }
 
-.pickup-info h3, .destination-info h3, .payment-info h3, .product-info h3 {
+.pickup-info h3, .destination-info h3, .payment-info h3, .product-info h3 .status h3 {
   font-weight: 500;
   border-bottom: 1px solid #8080801f;
   text-transform: capitalize;
