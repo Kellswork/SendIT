@@ -198,7 +198,7 @@ position: absolute;
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
-  background: #ffffffb8;
+  background: #f8f8f9;
 }
 .notification {
   width: 30%;
@@ -213,6 +213,7 @@ position: absolute;
 }
 .my-order {
   width: 65%;
+  background: #ffffffb8;
   text-align: center;
   box-shadow: 0px 0px 0px 1px #3a3f4421,
               0px 0px 0px 1px #3a3f441f, 

@@ -1,0 +1,27 @@
+.order-details {
+  width: 60%;
+}
+
+.pickup-info, .destination-info, .payment-info, .product-info {
+  background: white;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 2px 0px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.pickup-info h3, .destination-info h3, .payment-info h3, .product-info h3 {
+  font-weight: 500;
+  border-bottom: 1px solid #8080801f;
+  text-transform: capitalize;
+  
+}
+ p span.destination-info-change {
+  float: right;
+  text-transform: uppercase;
+  color: blue;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+}
+
