@@ -29,3 +29,11 @@ The frontend was implmented using:
 - [HTML]() A standard markup language for creating websites.
 - [CSS]() This describes how HTML elements are to be displayed on screen.
 - [JAVASCRIPT]() A programing language of html and the web.
+
+### Backend
+The backend was implemented using:
+
+- [Node](https://nodejs.org/en/) Node Js is a Javascript runtime built on Chrome's V8 JavaScript engine
+- [Express]() Express is a minimal and flexible Node.js web application framework
+- [PostgreSQL]() POSTGRESQL: The world's most advanced open source relational database
+
