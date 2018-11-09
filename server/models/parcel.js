@@ -5,6 +5,7 @@ const parcel = [
     productName: 'Zaron too faced powder',
     pickupAddress: 'no 2 allen avenue oshodi lagos',
     destinationAddress: 'no 2 fox road detox avenue apapa lagos',
+    status: 'delivered',
 
   },
   {
@@ -13,6 +14,7 @@ const parcel = [
     productName: 'electronic toothbrush',
     pickupAddress: 'no 2 fox road detox avenue apapa lagos',
     destinationAddress: 'no 2 allen avenue oshodi lagos',
+    status: 'In transit',
 
   },
   {
@@ -21,6 +23,7 @@ const parcel = [
     productName: 'Iphone-X',
     pickupAddress: 'no 2 fox road detox fallout garrison victoria island lagos',
     destinationAddress: 'no 2 allen avenue oshodi lagos',
+    status: 'delivered',
 
   },
   {
@@ -29,7 +32,7 @@ const parcel = [
     productName: 'aluminium paper',
     pickupAddress: 'no 2 fox road detox avenue apapa lagos',
     destinationAddress: 'no 2 allen avenue oshodi lagos',
-
+    status: 'in transit',
   },
   {
     id: 5,
@@ -37,6 +40,7 @@ const parcel = [
     productName: 'milani lipstick',
     pickupAddress: 'no 2 fox road detox avenue apapa lagos',
     destinationAddress: 'no 2 allen avenue oshodi lagos',
+    status: 'in transit',
 
   },
 ];
