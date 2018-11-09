@@ -1,0 +1,42 @@
+{
+  "name": "sendit",
+  "version": "1.0.0",
+  "description": "SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight catergories.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node server/index.js",
+    "build": "babel server --out-dir dist",
+    "serve": "node dist/index.js",
+    "test": "--require babel-core/register --require @babel/polyfill ./server/tests/* --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kellswork/SendIT.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Kelechi Ogbonna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kellswork/SendIT/issues"
+  },
+  "homepage": "https://github.com/Kellswork/SendIT#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.5",
+    "chai": "^4.2.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.6",
+    "supertest": "^3.3.0"
+  }
+}
