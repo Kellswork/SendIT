@@ -10,4 +10,15 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
+  if (!oneParcel) res.status(404).json('Parcel does not exist');
+  else {
+    res.status(200).json({
+      message: 'parcel order',
+      Details: oneParcel,
+    });
+  }
+});
+
 export default router;
