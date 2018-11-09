@@ -64,7 +64,6 @@ describe('/api/v1/parcels', () => {
         .send()
         .expect(200)
         .end((err, res) => {
-          console.log(res.body);
           expect(res.status).to.equal(200);
           expect(res.body).to.have.property('message');
           expect(res.body).to.have.property('Details');
