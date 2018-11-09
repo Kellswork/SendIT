@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/Kellswork/SendIT.svg?branch=development)](https://travis-ci.com/Kellswork/SendIT)
-
+[![Coverage Status](https://coveralls.io/repos/github/Kellswork/SendIT/badge.svg?branch=development)](https://coveralls.io/github/Kellswork/SendIT?branch=development)
 # SendIT
 
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes on weight categories.
