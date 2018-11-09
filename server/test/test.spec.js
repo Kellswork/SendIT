@@ -78,4 +78,21 @@ describe('/api/v1/parcels', () => {
         });
     });
   });
+
+  describe('Get all parcel delivery order by a specific user', () => {
+    it('should get all parcel delivery order a specific user has created', (done) => {
+      api.get('/api/v1/users/103/parcels')
+        .set('Content-Type', 'application/json')
+        .send()
+        .expect(200)
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.have.property('message');
+          expect(res.body).to.have.property('Details');
+          expect(res.body).to.have.property('Details');
+          expect(res.body.Details).to.be.a('array');
+          done();
+        });
+    });
+  });
 });
