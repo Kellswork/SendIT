@@ -21,4 +21,18 @@ router.get('/:id', (req, res) => {
   }
 });
 
+router.post('/', (req, res) => {
+  const newParcel = {
+    id: parcel.length + 1,
+    name: req.body.name,
+    productName: req.body.productName,
+    pickupAddress: req.body.pickupAddress,
+    destinationAddress: req.body.destinationAddress,
+  };
+  parcel.push(newParcel);
+  res.status(201).json({
+    message: 'Parcel order successfully created',
+    Details: newParcel,
+  });
+});
 export default router;

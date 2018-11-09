@@ -56,4 +56,26 @@ describe('/api/v1/parcels', () => {
         });
     });
   });
+
+  describe('Create a parcel delivery order', () => {
+    it('Should create a parcel delivery order and return it', (done) => {
+      const oneParcel = {
+        name: 'Henry Sampson',
+        productName: 'laptop charger',
+        pickupAddress: 'No 7 chain wake street opposite white house surulele portharcourt',
+        destinationAddress: 'No 20 airforce junction opposite white house bustop portharcourt',
+      };
+
+      api.post('/api/v1/parcels')
+        .set('Content-Type', 'application/json')
+        .send(oneParcel)
+        .expect(201)
+        .end((err, res) => {
+          expect(res.status).to.equal(201);
+          expect(res.body).to.have.property('message');
+          expect(res.body).to.have.property('Details');
+          done();
+        });
+    });
+  });
 });
