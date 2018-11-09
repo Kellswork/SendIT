@@ -44,5 +44,16 @@ describe('/api/v1/parcels', () => {
           done();
         });
     });
+
+    it('Should return 404 if parcel delivery order is not found', (done) => {
+      api.get('/api/v1/parcels/8')
+        .set('Content-Type', 'application/json')
+        .send()
+        .expect(404)
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          done();
+        });
+    });
   });
 });
