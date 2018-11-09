@@ -21,4 +21,15 @@ router.get('/:id', (req, res) => {
   }
 });
 
+router.put('/:id/cancel', (req, res) => {
+  const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
+  if (!oneParcel) res.status(404).json('Parcel does not exist');
+  else {
+    oneParcel.status = 'canceled';
+    res.status(200).json({
+      message: 'Your parcel delivery order has been canceled',
+      Details: oneParcel,
+    });
+  }
+});
 export default router;
