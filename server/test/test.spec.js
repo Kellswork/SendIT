@@ -56,4 +56,27 @@ describe('/api/v1/parcels', () => {
         });
     });
   });
+
+  describe('Cancel a parcel delivery order', () => {
+    it('Should update the status to canceled ', (done) => {
+      api.put('/api/v1/parcels/3/cancel')
+        .set('Content-Type', 'application/json')
+        .send()
+        .expect(200)
+        .end((err, res) => {
+          console.log(res.body);
+          expect(res.status).to.equal(200);
+          expect(res.body).to.have.property('message');
+          expect(res.body).to.have.property('Details');
+          expect(res.body.Details).to.have.property('name');
+          expect(res.body.Details).to.have.property('productName');
+          expect(res.body.Details).to.have.property('pickupAddress');
+          expect(res.body.Details).to.have.property('destinationAddress');
+          expect(res.body.Details).to.have.property('status');
+          expect(res.body.Details.status).to.equal('canceled');
+
+          done();
+        });
+    });
+  });
 });
