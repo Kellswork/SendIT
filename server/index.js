@@ -9,6 +9,9 @@ app.use(bodyParser.json());
 
 app.use('/api/v1/parcels', route);
 
-const port = process.env.port || 4000;
+const port = process.env.port || 8080;
 
-app.listen(port, () => console.log(`SendIT started on ${port}`));
+const server = app.listen(port);
+console.log(`SendIT started on ${port}`);
+
+export default server;

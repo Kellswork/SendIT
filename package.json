@@ -7,7 +7,7 @@
     "start": "nodemon --exec babel-node server/index.js",
     "build": "babel server --out-dir dist",
     "serve": "node dist/index.js",
-    "test": "--require babel-core/register --require @babel/polyfill ./server/tests/* --exit"
+    "test": "mocha --require @babel/register ./server/test/*.js --exit"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "@babel/core": "^7.1.5",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
+    "@babel/register": "^7.0.0",
     "chai": "^4.2.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb-base": "^13.1.0",
