@@ -3,6 +3,8 @@ import parcel from '../models/parcel';
 
 const router = express.Router();
 
+export default router;
+
 router.get('/', (req, res) => {
   res.status(200).json({
     message: ' Parcel orders',
@@ -21,6 +23,21 @@ router.get('/:id', (req, res) => {
   }
 });
 
+router.post('/', (req, res) => {
+  const newParcel = {
+    id: parcel.length + 1,
+    name: req.body.name,
+    productName: req.body.productName,
+    pickupAddress: req.body.pickupAddress,
+    destinationAddress: req.body.destinationAddress,
+  };
+  parcel.push(newParcel);
+  res.status(201).json({
+    message: 'Parcel order successfully created',
+    Details: newParcel,
+  });
+});
+
 router.put('/:id/cancel', (req, res) => {
   const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
   if (!oneParcel) res.status(404).json('Parcel does not exist');
@@ -32,4 +49,3 @@ router.put('/:id/cancel', (req, res) => {
     });
   }
 });
-export default router;
