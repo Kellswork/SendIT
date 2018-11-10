@@ -10,6 +10,11 @@ app.use(bodyParser.json());
 
 app.use('/api/v1/parcels', route);
 app.use('/api/v1/users', user);
+app.use((req, res, next) => {
+  const error = new Error('Could not find page with this address');
+  error.status = 404;
+  next(error);
+});
 
 const port = process.env.port || 8080;
 
