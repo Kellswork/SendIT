@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 
 const port = process.env.PORT || 8080;
 
-const server = app.listen(port, '0.0.0.0');
+const server = app.listen(port);
 console.log(`SendIT started on ${port}`);
 
 export default server;
