@@ -202,21 +202,27 @@ position: absolute;
 }
 .notification {
   width: 30%;
-  min-height: 250px;
+  min-height: 230px;
   border: 1px solid rgba(0, 52, 104, 0.13);
-  padding-left: 7px;
   text-align: left;
-  padding-right: 5px;
-  box-shadow: 0px 0px 2px 1px #00346833
+  box-shadow: 0px 0px 2px 2px #00346814;
+  border-radius: 5px;
 }
 .notification h3 {
+  padding-top: 2px;
   text-align: center;
 }
 .notification p {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 52, 104, 0.13);
-  position: relative;
+ padding: 8px;
+border-bottom: 1px solid rgba(0, 52, 104, 0.13);
+position: relative;
+}
+.notification p:hover {
+  font-weight: bold;
+  color: #003468;
+}
+.notification p:last-child {
+  border-bottom: none;
 }
 .notification p::before {
   display: inline-block;
