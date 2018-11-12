@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #f8f8f9;
+  background: #ffffffb8;
 }
 
 h1,
@@ -283,10 +283,6 @@ button {
   padding-top: 3%;
   margin-top: 10px;
   background: #fdfdfd;
-  box-shadow: 0px 0px 0px 1px #3a3f4421,
-              0px 0px 0px 1px #3a3f441f, 
-              1px 2px 1px 1px #ffffff08;
-
 }
 
 .box-two h2 {
@@ -304,7 +300,7 @@ button {
   margin: 0px auto;
   justify-content: space-around;
   text-align: center;
-  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .section-2 {
@@ -349,14 +345,15 @@ i.fas.fa-box-open:hover::after, i.fas.fa-shopping-bag:hover::after, i.fas.fa-sig
   margin-bottom: 40px;
 }
 
+hr {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  border-top: 1px solid #00000014;
+}
 /* box-three service */
 .box-three {
-  margin-top: 5%;
-  border-bottom: 1px solid grey;
+  border-bottom: 2px solid #00000014;
   background: #ffffffb8;
-  box-shadow: 0px 0px 0px 1px #3a3f4421,
-              0px 0px 0px 1px #3a3f441f, 
-              1px 2px 1px 1px #ffffff08;
 }
 
 .box-three h2 {
@@ -365,7 +362,6 @@ i.fas.fa-box-open:hover::after, i.fas.fa-shopping-bag:hover::after, i.fas.fa-sig
   font-size: 40px;
   letter-spacing: 1px;
   color: #ffc20e;
-  padding-top: 40px;
   padding-bottom: 15px;
 }
 
@@ -387,6 +383,7 @@ i.fas.fa-box-open:hover::after, i.fas.fa-shopping-bag:hover::after, i.fas.fa-sig
   padding-bottom: 5px;
   color: #3a3f44;
   font-weight: 500;
+  font-size: 17px;
 }
 .service-box p {
   color: #000000c9;

@@ -124,17 +124,24 @@ header li a:hover::before {
   opacity: 0.5;
 }
 /* css for the login and signup pages*/
+.login-form {
+  width: 100%;
+  height: 60vh;
+}
 .form {
   width:100%;
   height: 80%;
   margin: 0px auto;
-  padding-top: 8%;
-  padding-bottom: 50px;
   background: url(img/img1.jpg);
   background-size: cover;
   background-position: center;
 }
-
+.form-box {
+  background: rgba(0, 0, 0, 0.514);
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 .tab-page {
   list-style: none;
   box-sizing: border-box; 
@@ -179,16 +186,18 @@ li.tab {
   font-size: 20px;
   display: block;
   padding-bottom: 7px;
-  background: rgba(17, 16, 16, 0.055)
+  padding-left: 5px;
 }
 
 .tab-content {
   margin: 0px auto;
   width: 50%;
+  
 }
 .tab-content h1{
   text-align: center;
   margin-top: 12px;
+  padding-top: 3%;
   padding-bottom: 3%;
 }
 
@@ -196,7 +205,6 @@ li.tab {
   padding: 2%;
   border: 1px solid rgba(0, 0, 0, 0.062);
   box-sizing: border-box;
-  box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.068);
 }
 
  .tab-content input[type=text], input[type=password],.tab-content input[type=email] {
@@ -207,8 +215,18 @@ li.tab {
   font-size: 17px;
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.473);
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
   color: #fff;
-
+  
+}
+.tab-data {
+  background: #fff;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 80%;
+  box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.37);
 }
 button {
   padding: 10px;
@@ -250,13 +268,12 @@ footer {
 /* CSS for Contact Us Page */
 .contact-form {
 border: 1px solid rgba(0, 0, 0, 0.062);
-width: 60%;
+width: 50%;
 margin: 0 auto;
 padding-top: 20px;
-margin-bottom: 60px;
-margin-top: 60px;
 border-radius: 5px;
-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.062);
+background: white;
+box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.37);
 }
 .contact-form form{
   padding: 2%;
@@ -298,7 +315,7 @@ box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.062);
   padding: 8px;
 }
 .contact-form .text {
-  text-align: left;
+  text-align: center;
   padding: 2%;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.062);

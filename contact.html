@@ -35,30 +35,33 @@
         <a href="signup.html">Sign Up</a>
         <a href="login.html">Login</a>
     </div>
-    <div class="contact-form">
-      <div class="text">
-          <h1>Get In Touch</h1>
-          <h3> We appreciate your feedback</h3>
-      </div>  
-      <form action="/" method="post">
+    <div class="form-box">
+      <div class="contact-form">
+        <div class="text">
+            <h1>Get In Touch</h1>
+            <h3> We appreciate your feedback</h3>
+        </div>  
+        <form action="/" method="post">
+  
+          <label for="name">Name</label>
+          <input type="text" required autocomplete="off" placeholder="eg. Kelechi" />
 
-        <label for="name">Name</label>
-        <input type="text" required autocomplete="off" placeholder="Name" />
-
-        <label for="email">Email</label>
-        <input type="email" required autocomplete="off" placeholder="Email"/>
-
-        <label for="subject">Subject</label>
-        <input type="text" required autocomplete="off" placeholder="Subject"/>
-
-        <label for="message">message</label>
-        <textarea name="message" id="msg" cols="30" rows="8" placeholder="Message..."></textarea>
-
-        <button class='contact-btn' type="submit"> SEND </button>
-      </form>
+          <label for="email">Email</label>
+          <input type="email" required autocomplete="off" placeholder="Example@gmail.com"/>
+  
+          <label for="subject">Subject</label>
+          <input type="text" required autocomplete="off" placeholder="Subject"/>
+  
+          <label for="message">message</label>
+          <textarea name="message" id="msg" cols="30" rows="8" placeholder="Message..."></textarea>
+  
+          <button class='contact-btn' type="submit"> SEND </button>
+        </form>
+      </div>
     </div>
+    
       <footer class='account-footer'>
-        <p>copyright &copy;Andela boot-camp project 2018</p>
+        <p>copyright &copy; 2018 Andela boot-camp project</p>
       </footer>
   </div>
   <script src="js/script.js"></script>
