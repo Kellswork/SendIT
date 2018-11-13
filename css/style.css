@@ -282,7 +282,7 @@ button {
 .box-two {
   padding-top: 3%;
   margin-top: 10px;
-  background: #fdfdfd;
+  background: #ffffffb8;
 }
 
 .box-two h2 {
@@ -305,6 +305,10 @@ button {
 
 .section-2 {
   width: 30%;
+}
+.section-2 a {
+  text-decoration: none;
+  color: #003468;
 }
 
 .section-2 .fas {
@@ -345,16 +349,24 @@ i.fas.fa-box-open:hover::after, i.fas.fa-shopping-bag:hover::after, i.fas.fa-sig
   margin-bottom: 40px;
 }
 
-hr {
+.box-two hr {
+  margin: 0 auto;
   margin-top: 70px;
   margin-bottom: 70px;
   border-top: 1px solid #00000014;
+  width: 84%;
+ 
 }
 /* box-three service */
 .box-three {
-  border-bottom: 2px solid #00000014;
   background: #ffffffb8;
 }
+.box-three hr {
+  margin: 0 auto;
+  border-top: 1px solid #00000014;
+  width: 85%;
+}
+
 
 .box-three h2 {
   text-align: center;
@@ -384,6 +396,8 @@ hr {
   color: #3a3f44;
   font-weight: 500;
   font-size: 17px;
+  width: 85%;
+  margin: 0 auto;
 }
 .service-box p {
   color: #000000c9;

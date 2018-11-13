@@ -19,20 +19,26 @@
 .account-info {
   display: flex;
   min-height: 100%;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  border: 1px solid #C8C8C8;
   box-sizing: border-box;
+  justify-content: space-around; 
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .account-delivered {
-  width: 50%;
   text-align: center;
-  border-right: 1px solid #C8C8C8;
+  border: 1px solid;
+  width: 29%;
+  border-radius: 10px;
+
 }
 
 .account-in-transit {
-  width: 50%;
   text-align: center;
+  border: 1px solid;
+  width: 29%;
+  border-radius: 10px;
 }
 .account-delivered, .account-in-transit {
   padding-top: 10px;
