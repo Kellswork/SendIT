@@ -17,102 +17,109 @@
       <h1 class='logo'>
         Send<span>IT</span>
       </h1>
-      <div class="profile">
-        <div class="profile-img">
-          <img src="img/avatar.png" alt="image placeholder">
-          <div class="dropdown-content">
-              <a href="profile.html">Profile</a>
-              <a href="order.html">Orders</a>
-              <a href="login.html">Logout</a>
-            </div>
-        </div>
-        <a href="http:index.html"><i class="fas fa-home"></i></a>
-        <i class="fas fa-bell"></i>
-      </div>
-    </header>
-
-    <section class="box-one">
-      <div class="create-order">
-        <a href="createorder.html" class="create-order-button">Click To Create New Order</a>
-      </div>
-
       <div class="search-container">
         <form action="/action_page.php">
           <input class='search-input' type="text" placeholder="Search..." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
+          <button type="submit"><i class="fa fa-search"></i>
         </form>
       </div>
-    </section>
+      <div class="notification">
+        <div class="icon">
+          <i "javascript:void(0);" onclick="openNotification()" class="fas fa-bell"></i>
+          <div class="dropdown-notification">
+            <h3>4 New Notifications</h3>
+            <ul>
+              <li> your order #22776 has left our warehouse</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="profile-img">
+          <a href="profile.html"><img src="img/avatar-2.jpg" alt="image placeholder"></a>
+          <div class="dropdown-content">
+            <a href="createorder.html">New Order</a>
+            <a href="profile.html">Profile</a>
+            <a href="order.html">Orders</a>
+            <a href="login.html">Logout</a>
+          </div>
+        </div>
 
+      </div>
+
+
+    </header>
     <section class="content">
-      
-        <form action="#">
+
+      <form action="#">
         <div class="new-order">
-            <h1>Create Parcel Delivery Order</h1>
+          <h1>Create Parcel Delivery Order</h1>
           <div class="product-info">
             <h3> Product Information</h3>
             <label for="name">Name</label>
             <input type="text" placeholder="product name">
-              <label for="avatar">Profile Picture:</label>
-              <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
-            
+            <label for="avatar">Profile Picture:</label>
+            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
+
 
             <label for="package-weight"> Package Estimated weight</label>
             <input type="number" placeholder="input weight of item in kg">
             <div class="weight">
-              <input type="radio" id="pounds"
-                     name="weight" value="pounds" />
+              <input type="radio" id="pounds" name="weight" value="pounds" />
               <label for="weight">lb</label>
-  
-            <input type="radio" id="kilogram"
-                   name="weight" value="kilogram" />
-            <label for="weight">kg</label>
-        </div>
+
+              <input type="radio" id="kilogram" name="weight" value="kilogram" />
+              <label for="weight">kg</label>
+            </div>
           </div>
 
-            <div class="pickup-info">
-              <h3> Pickup Information</h3>
-              
-              <label for="address">Address</label>
-              <input type="text" placeholder="pickup address">
+          <div class="pickup-info">
+            <h3> Pickup Information</h3>
 
-              <label for="number">Phone Number</label>
-              <input type="number" placeholder="Phone number">
-            </div>
+            <label for="address">Address</label>
+            <input type="text" placeholder="pickup address">
 
-            <div class="Delivery-info">
-              <h3> Delivery Information</h3>
-              <label for="name">Name</label>
-              <input type="text" placeholder="product name">
+            <label for="number">Phone Number</label>
+            <input type="number" placeholder="Phone number">
+          </div>
 
-              <label for="address">Address</label>
-              <input type="text" placeholder="pickup address">
+          <div class="Delivery-info">
+            <h3> Delivery Information</h3>
+            <label for="name">Name</label>
+            <input type="text" placeholder="product name">
 
-              <label for="lga">LGA</label>
-              <input type="text" placeholder="LGA">
+            <label for="address">Address</label>
+            <input type="text" placeholder="pickup address">
 
-              <label for="state">State</label>
-              <input type="text" placeholder="state">
+            <label for="lga">LGA</label>
+            <input type="text" placeholder="LGA">
 
-              <label for="number">Phone Number</label>
-              <input type="number" placeholder="Phone number">
-            </div>
+            <label for="state">State</label>
+            <input type="text" placeholder="state">
 
-              <div class="payment">
-                <span>Choose Payment Method</span>
-                  <select id="payment" name="payment">
-                    <option value="mastercard">Mastercard</option>
-                    <option value="bank-deposit">Bank Deposit</option>
-                    <option value="pay-on-delivery">Pay On Delivery</option>
-                  </select>
-                </div>
+            <label for="number">Phone Number</label>
+            <input type="number" placeholder="Phone number">
+          </div>
+
+          <div class="payment">
+            <span>Choose Payment Method</span>
+            <select id="payment" name="payment">
+              <option value="mastercard">Mastercard</option>
+              <option value="bank-deposit">Bank Deposit</option>
+              <option value="pay-on-delivery">Pay On Delivery</option>
+            </select>
+          </div>
           <button type="submit">submit</button>
         </div>
-        </form>
-  </section>
-  <footer class="new-order-footer">
-    <p>copyright &copy; 2018 Andela boot-camp project</p>
-  </footer>
+      </form>
+    </section>
+    <footer class="new-order-footer">
+      <p>copyright &copy; 2018 Andela boot-camp project</p>
+    </footer>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

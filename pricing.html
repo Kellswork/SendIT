@@ -5,42 +5,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Shipping Rate | SendIT</title>
+  <title>Delivery Rate | SendIT</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
     crossorigin="anonymous">
   <link rel="stylesheet" href="css/form.css">
 </head>
 
 <body>
-  <div class="container">
+  <div class="form-container container">
     <header>
       <h1 class='logo'>
         Send<span>IT</span>
       </h1>
       <ul>
-          <li><a href="index.html">Home</a></li>
-          <li class="show"><a href="pricing.html">Pricing</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li class="show"><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="signup.html">Sign Up</a></li>
         <li><a href="login.html">Login</a></li>
       </ul>
       <div>
-          <a "javascript:void(0);" class="toggle" onclick="openNav()">☰</a>
-        </div>
-    </header>
-<div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a></li>
-    <a href="pricing.html">Pricing</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="signup.html">Sign Up</a>
-    <a href="login.html">Login</a>
-</div>
-    <div class="pricing-head">
-        <h1>Get a quick qoute on delivery fee to your desination</h1>
+        <a "javascript:void(0);" class="toggle" onclick="openNav()">☰</a>
+      </div>
+    
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a></li>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="login.html">Login</a>
     </div>
-    <div class="contact-form">
-     
-      <div class="shipping-form">
+  </header>
+  <div class="form-box">
+
+
+    <div class="pricing-head">
+      <h1>Get a quick qoute on delivery fee to your desination</h1>
+    </div>
+
+      <div class="pricing-form">
         <form>
 
           <label for="dimension">Dimension</label>
@@ -49,22 +52,20 @@
           <label for="package-weight">Package Estimated Weight</label>
           <input type="text">
           <div class="weight">
-            <input type="radio" id="pounds"
-                   name="weight" value="pounds" />
+            <input type="radio" id="pounds" name="weight" value="pounds" />
             <label for="weight">lb</label>
 
-          <input type="radio" id="kilogram"
-                 name="weight" value="kilogram" />
-          <label for="weight">kg</label>
-      </div>
+            <input type="radio" id="kilogram" name="weight" value="kilogram" />
+            <label for="weight">kg</label>
+          </div>
           <button class='contact-btn'>Get Delivery Rate</button>
         </form>
-          <div class="results"></div>
+        <div class="results"></div>
       </div>
     </div>
     <footer class='account-footer'>
       <p>copyright &copy; 2018 Andela boot-camp project</p>
-      </footer>
+    </footer>
   </div>
   <script src="js/script.js"></script>
 </body>

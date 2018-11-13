@@ -14,7 +14,7 @@ input, button {
 }
 .order-container {
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   position: relative;
 }
 body {
@@ -112,6 +112,7 @@ header {
   background: #003468;
   border-radius: 4px;
   display: none;
+  border: 1px solid #003468;
 }
 .dropdown-content a {
   display: block;
@@ -128,23 +129,39 @@ position: absolute;
 }
 .dropdown-content a:hover {
   color: #ffc20e;
+  font-weight: bold;
 }
 .notification {
   position: relative;
 }
 .dropdown-notification {
   position: absolute;
-  min-width: 230px;
+  min-width: 210px;
   background: #003468;
   border-radius: 4px;
-  border: 1px solid whitesmoke;
+  border: 1px solid #003468;
   display: block;
   right: 0;
   margin-top: 20px;
+  z-index: 1;
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+}
+i.fas.fa-bell {
+  font-size: 18px;
 }
 .dropdown-notification ul {
   list-style: none;
-
+padding: 8px;
+}
+.dropdown-notification h3 {
+  padding: 5px;
+  text-align: center;
+}
+.dropdown-notification li:hover{
+  color: #ffc20e;
+  font-weight: bold;
 }
 /* Section box-one */
 
@@ -157,12 +174,19 @@ position: absolute;
   align-items: center;
   box-sizing: border-box;
 }
-.create-order{
+.box-one h2 {
   width: 50%;
+  margin-left: 10%;
+  text-transform: uppercase;
+}
+.create-order{
   margin-left: 20px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
 }
 .create-order-button {
-  width: 60%;
+  width: 40%;
   border-radius: 8px;
   outline: none;
   cursor: pointer;
@@ -171,7 +195,9 @@ position: absolute;
   text-shadow:0px 1px 0px #3d768a;
   color: #003468;
   padding: 13px 20px;
-  margin-left: 20px;
+  margin-left: 50px;
+  text-align: center;
+  font-weight: bold;
 }
 .create-order-button:active {
   position: relative;
@@ -190,27 +216,26 @@ position: absolute;
 .search-container button {
   position: absolute;
   margin-left: -43px;
-  height: 35px;
   width: 40px;
   border: none;
   outline: none;
   border-radius: 4px;
-  color: white;
-  padding: 2px;
-  background: #003468;
+  color: #003468;
+  background: white;
+  top: 5px;
 }
 .search-container .search-input {
   height: 30px;
   border-radius: 5px;
   outline: none;
-  width: 60%;
+  width: 40%;
   border: 3px solid #003468;
   padding-left: 10px;
 }
 
 /* Content */
 .content {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -218,7 +243,7 @@ position: absolute;
   background: #f8f8f9;
 }
 .my-order {
-  width: 65%;
+  width: 100%;
   background: #ffffffb8;
   text-align: center;
   box-shadow: 0px 0px 0px 1px #3a3f4421,
@@ -310,7 +335,6 @@ td a:hover {
   margin-top: 30px;
   box-sizing: border-box;
   position: relative;
-  z-index: 2;
   text-transform: uppercase;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -482,6 +506,13 @@ tbody {
 }
 td {
   font-size: 16px;
+}
+td span {
+  position: relative;
+}
+td .details {
+  position: absolute;
+  display: block;
 }
 th {
   font-size: 17px;

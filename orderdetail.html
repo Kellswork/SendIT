@@ -12,46 +12,55 @@
 </head>
 
 <body>
-  <div class="order-container">
+  <div class="order-details-container">
     <header>
       <h1 class='logo'>
         Send<span>IT</span>
       </h1>
-      <div class="profile">
-        <div class="profile-img">
-          <img src="img/avatar-2.jpg" alt="image placeholder">
-          <div class="dropdown-content">
-            <a href="profile.html">Profile</a>
-            <a href="order.html">Orders</a>
-            <a href="login.html">Logout</a>
-          </div>
-        </div>
-        <a href="index.html"><i class="fas fa-home"></i></a>
-        <i class="fas fa-bell"></i>
-      </div>
-    </header>
-
-    <section class="box-one">
-      <div class="create-order">
-        <a href="createorder.html" class="create-order-button">Click To Create New Order</a>
-      </div>
-
       <div class="search-container">
         <form action="/action_page.php">
           <input class='search-input' type="text" placeholder="Search..." name="search">
           <button type="submit"><i class="fa fa-search"></i>
         </form>
       </div>
-    </section>
+      <div class="notification">
+        <div class="icon">
+          <i "javascript:void(0);" onclick="openNotification()" class="fas fa-bell"></i>
+          <div class="dropdown-notification">
+            <h3>4 New Notifications</h3>
+            <ul>
+              <li> your order #22776 has left our warehouse</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="profile-img">
+         <a href="profile.html"><img src="img/avatar-2.jpg" alt="image placeholder"></a> 
+          <div class="dropdown-content">
+            <a href="createorder.html">New Order</a>
+            <a href="profile.html">Profile</a>
+            <a href="order.html">Orders</a>
+            <a href="login.html">Logout</a>
+          </div>
+        </div>
+
+      </div>
+
+
+    </header>
+
+    <section class="box-one">
+      <h2>My Orders</h2>
+    <div class="create-order">
+      <a href="createorder.html" class="create-order-button"> New Order </a>
+    </div>
+  </section>
 
     <section class="content">
-      <div class="notification">
-        <h3>Notifications</h3>
-        <p> Your order #22776 has left our warehouse</p>
-        <p>Your order #23455 has been delivered</p>
-        <p>Your order #23455 has been delivered</p>
-        <p>Your order #23455 has been delivered</p>
-      </div>
       <div class="order-details">
         <div class="one-order-detail">
          <div class="product-info">
@@ -67,7 +76,7 @@
               <h3>Destination Address</h3> 
               <p>Kelechi Ogbonna</p>
               <p> No 2 chief estate, woji, lagos     
-                <span            class="destination-info-change">Chang e</span>
+                <span class="destination-info-change">Chang e</span>
               </p>
               <p>07032228321</p>
           </div>
@@ -84,14 +93,14 @@
          </button>
        </div>
     </section>
-    <footer class='account-footer'>
+    <footer class='order-details-footer'>
       <p>copyright &copy; 2018 Andela boot-camp project</p>
     </footer>
   </div>
   </div>
 
   <div>
-
+<script src="js/script.js"></script>
 </body>
 
 </html>

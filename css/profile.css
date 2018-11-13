@@ -48,6 +48,9 @@
   margin: 0 auto;
   padding-top: 20px;
 }
+.account-details h3 {
+  padding: 0px 50px;
+}
 .account-data {
   box-sizing: border-box;
   padding: 0px 50px;
@@ -61,17 +64,24 @@
   padding-left: 5px;
 }
 .orders {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   padding-top: 20px;
+}
+.orders h3 {
+  width: 80%;
+  margin: 0 auto;
 }
 .account-order-details {
   width: 100%;
   text-align: left;
-  padding: 0px 40px;
+  padding: 0px 50px;
 }
 table {
   border-spacing: 0px;
+}
+tbody {
+  text-align:  center;
 }
 tr:nth-child(even){
   background: rgb(223, 219, 219);

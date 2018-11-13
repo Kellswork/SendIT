@@ -20,11 +20,12 @@
       <div class="search-container">
         <form action="/action_page.php">
           <input class='search-input' type="text" placeholder="Search..." name="search">
+          <button type="submit"><i class="fa fa-search"></i>
         </form>
       </div>
       <div class="notification">
         <div class="icon">
-          <i class="fas fa-bell"></i>
+          <i "javascript:void(0);" onclick="openNotification()" class="fas fa-bell"></i>
           <div class="dropdown-notification">
             <h3>4 New Notifications</h3>
             <ul>
@@ -38,7 +39,7 @@
       </div>
       <div class="profile">
         <div class="profile-img">
-          <img src="img/avatar-2.jpg" alt="image placeholder">
+          <a href="profile.html"><img src="img/avatar-2.jpg" alt="image placeholder"></a>
           <div class="dropdown-content">
             <a href="createorder.html">New Order</a>
             <a href="profile.html">Profile</a>
@@ -53,15 +54,16 @@
     </header>
 
     <section class="box-one">
+        <h2>My Orders</h2>
       <div class="create-order">
-        <a href="createorder.html" class="create-order-button">Click To Create New Order</a>
+        <a href="createorder.html" class="create-order-button"> New Order </a>
       </div>
     </section>
 
     <section class="content">
 
       <div class="my-order">
-        <h3>My Orders</h3>
+       
         <div class="order-details">
           <table>
             <tr>
@@ -102,7 +104,7 @@
   </div>
 
   <div>
-
+<script src="js/script.js"></script>
 </body>
 
 </html>

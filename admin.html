@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> Admin | SendIT </title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <title>Login | SendIT </title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="css/form.css">
 </head>
 
@@ -14,48 +15,41 @@
   <div class="form-container container">
     <header>
       <h1 class='logo'>
-          Send<span>IT</span>
+        Send<span>IT</span>
       </h1>
       <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li class="show"><a href="signup.html">Sign Up</a></li>
-          <li><a href="login.html">Login</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li class="show"><a href="login.html">Login</a></li>
       </ul>
-      <div>
-          <a "javascript:void(0);" class="toggle" onclick="openNav()">☰</a>
+    </header>
+    <div class="form-box">
+    <div class="login-form">
+      <div class="tab-content">
+
+        <div id="login" class="tab-data">
+          <h1>Admin Login</h1>
+          <form action="/" method="post">
+
+            <label for="email"></i> Email</label>
+            <input type="email" autocomplete="off" />
+
+            <label for="password"></i> Password</label>
+            <input class='name' type="password" autocomplete="off" />
+
+            <button class='btn1' type="submit" onclick="window.location.href='order.html'">Login</button>
+          </form>
         </div>
-  </header>
-  <div class="mobile-nav" id="mobileNav">
-      <a href="index.html">Home</a></li>
-      <a href="pricing.html">Pricing</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="signup.html">Sign Up</a>
-      <a href="login.html">Login</a>
+      </div>
+    </div>
   </div>
-      <div class="form">
-        <div class="tab-content">
-          <div id="login">
-            <h1><i class="fas fa-user"></i> Admin Login</h1>
-            <form action="/" method="post">   
-                  
-                  <label for="email"><i class="fas fa-at"></i> Username</label>
-                  <input type="email" autocomplete="off"/>
-                  
-                  <label for="password"><i class="fas fa-lock"></i> Password</label>
-                  <input class='name' type="password" autocomplete="off"/>
-  
-                  <button class='btn1' type="submit" onclick="window.location.href='admin-order.html'"> <a>Login</a></button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <footer class='account-footer'>
-        <p>copyright &copy; 2018 Andela boot-camp project</p>
-      </footer>
-      </div>
-      <script src="js/script.js"></script>
+    <footer class='account-footer'>
+      <p>copyright &copy; 2018 Andela boot-camp project</p>
+    </footer>
+  </div>
+  <script src="js/script.js"></script>
 </body>
 
 </html>

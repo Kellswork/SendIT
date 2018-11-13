@@ -13,46 +13,53 @@
 
 <body>
   <div class="admin-container">
-    <header>
-      <h1 class='logo'>
-        Send<span>IT</span>
-      </h1>
-      <div class="profile">
-        <div class="profile-img">
-          <img src="img/avatar.png" alt="image placeholder">
-          <div class="dropdown-content">
-              <a href="profile.html">Profile</a>
-              <a href="order.html">Orders</a>
-              <a href="login.html">Logout</a>
+      <header>
+          <h1 class='logo'>
+            Send<span>IT</span>
+          </h1>
+          <div class="search-container">
+            <form action="/action_page.php">
+              <input class='search-input' type="text" placeholder="Search..." name="search">
+              <button type="submit"><i class="fa fa-search"></i>
+            </form>
+          </div>
+          <div class="notification">
+            <div class="icon">
+              <i "javascript:void(0);" onclick="openNotification()" class="fas fa-bell"></i>
+              <div class="dropdown-notification">
+                <h3>4 New Notifications</h3>
+                <ul>
+                    <li>order with ID #22776 status was changed to warehouse</li>
+                    <li>order with ID #23455 status been changed to delivered</li>
+                    <li>order with ID #23455 current location been changed to lagos</li>
+                </ul>
+              </div>
             </div>
-        </div>
-        <a href="index.html"><i class="fas fa-home"></i></a>
-        <i class="fas fa-bell"></i>
-      </div>
-    </header>
+          </div>
+          <div class="profile">
+            <div class="profile-img">
+              <a href="profile.html"><img src="img/avatar.png" alt="image placeholder"></a>
+              <div class="dropdown-content">
+                <a href="createorder.html">New Order</a>
+                <a href="order.html">Orders</a>
+                <a href="login.html">Logout</a>
+              </div>
+            </div>
+    
+          </div>
+    
+    
+        </header>
     
     <section class="box-one">
+      <h2>PARCEL ORDERS</h2>
       <div class="create-order">
-        <a href="createorder.html" class="create-order-button">Click To Create New Order</a>
-      </div>
-
-      <div class="search-container">
-        <form action="/action_page.php">
-          <input class='search-input' type="text" placeholder="Search..." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+        <a href="createorder.html" class="create-order-button">New Order</a>
       </div>
     </section>
 
     <section class="content">
-            <div class="notification">
-              <h4>Notifications</h4>
-                <p>order with ID #22776 status was changed to warehouse</p>
-                <p>order with ID #23455 status been changed to delivered</p>
-                <p>order with ID #23455 current location been changed to lagos</p>
-            </div>
             <div class="my-order">
-              <h4>ORDERS</h4>
               <div  class="order-details">
                 <table>
                   <tr>
@@ -63,11 +70,9 @@
 
                   <tr>
                     <td>#22776</td>
-                    <td>lagos<span><a href="#">edit</a></span></td>
-                    <td>warehouse<span><a href="#">edit</a></span></td>
-                    <td><a href="orderdetail.html" onclick="window.location.href='orderdetail.html'">Order details</a></td>
-                  </tr>
-                  
+                    <td>lagos</td>
+                    <td>warehouse</td>
+                    <td><i class="fas fa-ellipsis-v"></i><span class="details"><p>Details</p><p>edit</p></span></td>
                 </table>
                        
                     <div class="pagination">

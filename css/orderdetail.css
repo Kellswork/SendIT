@@ -1,7 +1,10 @@
 .order-details {
   width: 60%;
+  margin: 0 auto;
 }
-
+.order-details-container {
+  
+}
 .pickup-info, .destination-info, .payment-info, .product-info, .status {
   background: white;
   margin-bottom: 10px;
@@ -37,6 +40,7 @@
     background: #003468;
     font-weight: 900;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 .cancel-order:hover {
   background: white;
@@ -44,7 +48,18 @@
   border: 1px solid #003468;
  
 }
-
+.order-details-footer {
+    height: 60px;
+    padding-top: 10px;
+    bottom: 0;
+    width: 100%;
+    background: #003468;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    bottom: 0;
+  }
 @media(max-width: 760px) {
  .order-details{
   width: 95%;

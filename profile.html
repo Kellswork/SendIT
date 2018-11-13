@@ -18,37 +18,46 @@
       <h1 class='logo'>
         Send<span>IT</span>
       </h1>
-      <div class="profile">
-        <div class="profile-img">
-          <img src="img/avatar-2.jpg" alt="image placeholder">
-          <div class="dropdown-content">
-              <a href="profile.html">Profile</a>
-              <a href="order.html">Orders</a>
-              <a href="login.html">Logout</a>
-            </div>
-        </div>
-        <a href="index.html"><i class="fas fa-home"></i></a>
-        <i class="fas fa-bell"></i>
-      </div>
-    </header>
-
-    <section class="box-one">
-      <div class="create-order">
-        <a href="createorder.html" class="create-order-button">Click To Create New Order</a>
-      </div>
-
       <div class="search-container">
         <form action="/action_page.php">
           <input class='search-input' type="text" placeholder="Search..." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
+          <button type="submit"><i class="fa fa-search"></i>
         </form>
       </div>
-    </section>
+      <div class="notification">
+        <div class="icon">
+          <i "javascript:void(0);" onclick="openNotification()" class="fas fa-bell"></i>
+          <div class="dropdown-notification">
+            <h3>4 New Notifications</h3>
+            <ul>
+              <li> your order #22776 has left our warehouse</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="profile-img">
+          <a href="profile.html"><img src="img/avatar-2.jpg" alt="image placeholder"></a>
+          <div class="dropdown-content">
+            <a href="createorder.html">New Order</a>
+            <a href="profile.html">Profile</a>
+            <a href="order.html">Orders</a>
+            <a href="login.html">Logout</a>
+          </div>
+        </div>
+
+      </div>
+
+
+    </header>
 
     <section class="account-container">
       <div class="account">
         <div class="account-img">
-          <img src="img/avatar-2.jpg" alt="profile picture">
+        <a href="profile.html"><img src="img/avatar-2.jpg" alt="image placeholder"></a>
           <h1>Welcome KELECHI</h1>
         </div>
         <div class="account-info">
@@ -73,7 +82,7 @@
       </div>
       <hr>
       <div class="orders">
-        <h3>Order Details</h3>
+          <h3>Order Details</h3>
         <table class="account-order-details">
           <tr>
             <th>Order ID</th>
@@ -112,7 +121,7 @@
   </div>
 
   <div>
-
+<script src="js/script.js"></script>
 </body>
 
 </html>
