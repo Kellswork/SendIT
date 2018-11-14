@@ -160,6 +160,10 @@ padding: 8px;
   padding: 5px;
   text-align: center;
 }
+.dropdown-notification li {
+  border-bottom: 1px solid #ffffff17;
+  padding: 2px;
+}
 .dropdown-notification li:hover{
   color: #ffc20e;
   font-weight: bold;
@@ -279,6 +283,7 @@ td span {
   width: 80px;
   border-radius: 5px;
   display: none;
+  cursor: pointer;
 }
 td.nav:hover span.details {
   display: block;
@@ -286,6 +291,14 @@ td.nav:hover span.details {
 td span p {
   border-bottom: 1px solid #ffffff17;
   padding-bottom: 2px;
+}
+td span.details p a {
+  text-decoration: none;
+  border-bottom: none;
+  opacity: 1;
+}
+td span.details p a:hover {
+  color : #ffc20e;
 }
 td span p:hover {
   color : #ffc20e;

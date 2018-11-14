@@ -5,51 +5,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login | SendIT </title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+  <title>Admin | SendIT </title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/order.css">
 </head>
 
 <body>
-  <div class="form-container container">
-    <header>
-      <h1 class='logo'>
-        Send<span>IT</span>
-      </h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-        <li class="show"><a href="login.html">Login</a></li>
-      </ul>
-    </header>
-    <div class="form-box">
-    <div class="login-form">
-      <div class="tab-content">
-
-        <div id="login" class="tab-data">
-          <h1>Admin Login</h1>
-          <form action="/" method="post">
-
-            <label for="email"></i> Email</label>
-            <input type="email" autocomplete="off" />
-
-            <label for="password"></i> Password</label>
-            <input class='name' type="password" autocomplete="off" />
-
-            <button class='btn1' type="submit" onclick="window.location.href='order.html'">Login</button>
-          </form>
-        </div>
+  <div class="admin-container">
+      <header>
+          <h1 class='logo'>
+            Send<span>IT</span>
+          </h1>
+          <div class="search-container">
+            <form action="/action_page.php">
+              <input class='search-input' type="text" placeholder="Search..." name="search">
+              <button type="submit"><i class="fa fa-search"></i>
+            </form>
+          </div>
+          <div class="notification">
+            <div class="icon">
+              <i "javascript:void(0);" onclick="openNotification()" class="fas fa-bell"></i>
+              <div class="dropdown-notification">
+                <h3>4 New Notifications</h3>
+                <ul>
+                    <li>order with ID #22776 status was changed to warehouse</li>
+                    <li>order with ID #23455 status been changed to delivered</li>
+                    <li>order with ID #23455 current location been changed to lagos</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="profile-img">
+              <a href="profile.html"><img src="img/avatar.png" alt="image placeholder"></a>
+              <div class="dropdown-content">
+                <a href="createorder.html">New Order</a>
+                <a href="order.html">Orders</a>
+                <a href="login.html">Logout</a>
+              </div>
+            </div>
+    
+          </div>
+    
+    
+        </header>
+    
+    <section class="box-one">
+      <h2>PARCEL ORDERS</h2>
+      <div class="create-order">
+        <a href="createorder.html" class="create-order-button">New Order</a>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <section class="content">
+            <div class="my-order">
+              <div  class="order-details">
+                <table>
+                  <tr>
+                    <th id="orderId"> order id</th>
+                    <th id="current-location"> Present Location</th>
+                    <th id="status"> Status</th>
+                  </tr>
+
+                  <tr>
+                    <td>#22776</td>
+                    <td>lagos</td>
+                    <td>warehouse</td>
+                    <td class="nav"><i class="fas fa-ellipsis-v"></i><span class="details"><p><a href="orderdetails.html">Details</p></a>
+                                    <p>edit</p></span></td>
+                </table>
+                       
+                    <div class="pagination">
+                      <a href="#"><i class="fas fa-angle-double-right"></i></a>
+                      <a href="#"><i class="fas fa-angle-double-left"></i></a>
+                    </div>
+              </div>
+                
+            </div>
+    </section>
     <footer class='account-footer'>
       <p>copyright &copy; 2018 Andela boot-camp project</p>
-    </footer>
+      </footer>
   </div>
-  <script src="js/script.js"></script>
+  
+  
+  </div>
+
+  <div>
+
 </body>
 
 </html>

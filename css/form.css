@@ -1,14 +1,25 @@
 /* scada for heading, news cycle for p, li, button etc */
 @import url('https://fonts.googleapis.com/css?family=News+Cycle|Scada');
 
-*{
+* {
   margin: 0;
   padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
   width: 100%;
   background: url(https://kellswork.github.io/SendIT/img/img1.jpg);
+  flex: 1 0 auto;
 }
 
 
@@ -30,22 +41,28 @@ li {
   font-size: 17px;
   font-weight: 900;
 }
+
 button,
 li,
 a {
   font-family: 'News Cycle', sans-serif;
 }
+
 input::-moz-placeholder {
   font-family: 'News Cycle', sans-serif;
   color: #fff;
 }
+
 input::placeholder {
   font-family: 'News Cycle', sans-serif;
   color: white;
 }
-input, button {
+
+input,
+button {
   outline: none;
 }
+
 /* header */
 header {
   width: 100%;
@@ -75,7 +92,7 @@ header {
   padding-right: 3px;
 }
 
-.logo span  {
+.logo span {
   display: inline-block;
   transform: skew(-20deg);
 }
@@ -99,7 +116,8 @@ header li {
 header li a::before {
   position: absolute;
   content: '';
-  border-top: 2px solid #ffc20e;;
+  border-top: 2px solid #ffc20e;
+  ;
   top: 110%;
   height: 5px;
   left: 0;
@@ -116,35 +134,44 @@ header li a:hover::before {
   position: absolute;
   content: "";
   width: 100%;
-  border-top: 2px solid #ffc20e;;
+  border-top: 2px solid #ffc20e;
+  ;
   top: 110%;
 }
 
 .show:hover::before {
   opacity: 0.5;
 }
+
 /* css for the login and signup pages*/
 .login-form {
   width: 100%;
   height: 60vh;
 }
+
 .form {
-  width:100%;
+  width: 100%;
   height: 80%;
   margin: 0px auto;
   background: url(img/img1.jpg);
   background-size: cover;
   background-position: center;
+
 }
+
 .form-box {
   background: rgba(0, 0, 0, 0.514);
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .tab-page {
   list-style: none;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   width: 70%;
   font-size: 20px;
   padding: 0px;
@@ -156,11 +183,16 @@ header li a:hover::before {
 li.tab {
   box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.1);
 }
-.tab  a {
+
+.tab a {
   text-decoration: none;
   color: white;
   padding: 0px;
   width: 100%;
+}
+
+.form-container {
+  flex: 1 0 auto;
 }
 
 .tab {
@@ -182,34 +214,42 @@ li.tab {
   background: rgb(7, 72, 136);
 }
 
-.tab-content label[for=firstname],label[for=lastname], label[for=password],.tab-content label[for=email] {
+.tab-content label[for=firstname],
+label[for=lastname],
+label[for=password],
+.tab-content label[for=email] {
   font-size: 20px;
   display: block;
   padding-bottom: 7px;
   padding-left: 5px;
-  color: #fff;
+  color: #ffc20e;
 }
 
 .tab-content {
   margin: 0px auto;
   width: 50%;
-  
+  padding: 20px 0;
+
 }
-.tab-content h1{
+
+.tab-content h1 {
   text-align: center;
   margin-top: 12px;
   padding-top: 3%;
   padding-bottom: 3%;
   color: white;
+  color: #ffc20e;
 }
 
-.tab-content form{
+.tab-content form {
   padding: 2%;
   border: 1px solid rgba(0, 0, 0, 0.062);
   box-sizing: border-box;
 }
 
- .tab-content input[type=text], input[type=password],.tab-content input[type=email] {
+.tab-content input[type=text],
+input[type=password],
+.tab-content input[type=email] {
   height: 40px;
   padding: 5px;
   margin-bottom: 2%;
@@ -221,47 +261,51 @@ li.tab {
   border-radius: 5px;
   border: 1px solid whitesmoke;
   color: #fff;
-  
+
 }
+
 .tab-data {
   background: transparent;
   border-radius: 5px;
   margin: 0 auto;
-  width: 80%;
-  border : 2px solid white;
+  width: 60%;
+  border: 2px solid white;
   box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.37);
 }
+
 button {
+  color: #fff;
   padding: 10px;
-  width: 120px;
+  width: 100%;
   border-radius: 10px;
   outline: none;
   cursor: pointer;
   margin-top: 10px;
   font-size: 18px;
   border: 1px solid rgb(0, 52, 104);
-  color: white;
   background: rgb(0, 52, 104);
   transition-property: background;
   transition-duration: 200ms;
   transition-timing-function: ease-in;
-  
+
 }
+
 .btn1 a {
   text-decoration: none;
-  color: #fff;
+  color: #ffc20e;
 }
+
 .btn1:hover {
-  background:rgb(0, 52, 104, 0.795);
+  background: rgb(0, 52, 104, 0.795);
   border: 1px solid rgb(0, 52, 104, 0.795);
-  
+
 }
 
 /* footer */
 footer {
   height: 60px;
   padding-top: 10px;
-  background:rgb(0, 52, 104);
+  background: rgb(0, 52, 104);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -270,15 +314,15 @@ footer {
 
 /* CSS for Contact Us Page */
 .contact-form {
-border: 1px solid rgba(0, 0, 0, 0.062);
-width: 50%;
-margin: 0 auto;
-padding-top: 10px;
-border-radius: 5px;
-border: 2px solid white;
-box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(0, 0, 0, 0.062);
+  width: 40%;
+  margin: 20px auto;
+  border-radius: 5px;
+  border: 2px solid white;
+  box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.37);
 }
-.contact-form form{
+
+.contact-form form {
   padding: 2%;
   box-sizing: border-box;
 }
@@ -289,7 +333,7 @@ box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.37);
   padding-bottom: 7px;
   padding-left: 4px;
   text-transform: capitalize;
-  color: white;
+  color: #FFC107;
 }
 
 .contact-form input {
@@ -317,7 +361,9 @@ box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.37);
   width: 100%;
   box-sizing: border-box;
   padding: 8px;
+  color: #FFC107;
 }
+
 .contact-form .text {
   text-align: center;
   padding: 2%;
@@ -325,57 +371,61 @@ box-shadow: 0px 0px 9px 3px rgba(0, 0, 0, 0.37);
   border-bottom: 1px solid rgba(0, 0, 0, 0.062);
   border-radius: 5px;
   line-height: 1.5;
-  color: white;
+  color: #FFC107;
 }
-input::placeholder{
+
+input::placeholder {
   color: #fff;
 }
+
 /* pricing */
 .pricing-head {
   padding-bottom: 40px;
 }
-.form-container {
-  height: 100vh;
-}
+
 .pricing-head h1 {
- width: 80%;
- margin: 0 auto;
- text-align: center;
- padding-top: 20px;
- text-transform: uppercase;
- color: white;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFC107;
 }
+
 .pricing-form {
-    width: 50%;
-    margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
 }
+
 .pricing-form label {
   font-size: 18px;
   display: block;
   padding-bottom: 7px;
   padding-left: 4px;
   text-transform: capitalize;
-  color: white;
+  color: #FFC107;
 }
+
 .pricing-form label[for=weight] {
   text-transform: lowercase;
 }
+
 .pricing-form input {
-    padding: 8px;
-    margin-bottom: 3%;
-    width: 100%;
-    font-size: 16px;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.473);
-    color: #fff;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid whitesmoke;
+  padding: 8px;
+  margin-bottom: 3%;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.473);
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid whitesmoke;
 }
+
 .pricing-form form {
   padding: 2%;
   box-sizing: border-box;
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   border-radius: 5px;
   border: 2px solid white;
@@ -385,34 +435,49 @@ input::placeholder{
 .weight {
   margin-left: 20px;
 }
-input[type=radio]{
+
+input[type=radio] {
   width: inherit;
   margin-bottom: 0px;
 }
- label[for=weight] {
+
+label[for=weight] {
   display: inline;
   padding-right: 15px;
 }
+
 .toggle {
   display: none;
   padding-right: 20px;
   font-size: 25px;
   cursor: pointer;
 }
+
 .toggle:hover {
   color: yellow;
 }
-.mobile-nav{
+
+.mobile-nav {
   color: black;
   display: none;
   width: 100%;
   overflow: hidden;
 }
-.account-footer {
-  position: absolute;
+
+.pricing-footer, .login-footer {
   width: 100%;
+  flex-shrink: 0;
+  position: absolute;
+  bottom: 0;
+
 }
-.mobile-nav a{
+
+.account-footer {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.mobile-nav a {
   color: white;
   background: #003468;
   display: block;
@@ -421,35 +486,56 @@ input[type=radio]{
   text-align: center;
   padding-bottom: 8px;
 }
+
 .mobile-nav a:hover {
   background: #ffc20e;
 }
+
 @media (max-width: 768px) {
   .toggle {
     display: block;
   }
+.pricing-form {
+  width: 100%;
+}
+.pricing-form form {
+  width: 90%;
+}
   header ul a {
     display: none;
   }
+.pricing-footer {
+  position: relative;
+}
   .logo {
     font-size: 1.9em;
     width: 40%;
   }
+
   .contact-form {
     margin-top: 20px;
     width: 90%;
   }
+
   .pricing-head h1 {
     width: 100%;
     font-size: 1.5rem;
   }
+
   .tab-page {
     width: 90%;
   }
+
   .tab {
     width: 80%;
   }
+  .tab-data {
+    width: 100%;
+  }
   .tab-content {
     width: 90%;
+  }
+  .login-footer{
+    position: relative;
   }
 }
