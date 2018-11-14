@@ -81,6 +81,7 @@ header {
   display: flex;
   justify-content: center;
   color: #ffc20e;
+  cursor: pointer;
 }
 
 .logo::before {
@@ -289,6 +290,9 @@ button {
   transition-timing-function: ease-in;
 
 }
+button.btn1 {
+  color: #ffc20e;
+}
 
 .btn1 a {
   text-decoration: none;
@@ -355,7 +359,15 @@ footer {
   border-radius: 5px;
   margin-bottom: 3%;
   padding: 8px;
+  color: white;
 }
+textarea#msg {
+  background:rgba(0, 0, 0, 0.473) !important;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #fff;
+  }
 
 .contact-btn {
   width: 100%;
@@ -467,8 +479,6 @@ label[for=weight] {
 .pricing-footer, .login-footer {
   width: 100%;
   flex-shrink: 0;
-  position: absolute;
-  bottom: 0;
 
 }
 
