@@ -64,6 +64,7 @@ header {
   display: flex;
   justify-content: center;
   color: #ffc20e;
+  cursor: pointer;
 }
 .logo a {
   text-decoration: none;

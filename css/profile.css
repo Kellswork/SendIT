@@ -19,26 +19,28 @@
 .account-info {
   display: flex;
   min-height: 100%;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
   justify-content: space-around; 
   padding-left: 10px;
   padding-right: 10px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  
 }
 .account-delivered {
-  text-align: center;
-  border: 1px solid;
-  width: 29%;
-  border-radius: 10px;
-
+  margin-right: 20px;
 }
-
-.account-in-transit {
-  text-align: center;
-  border: 1px solid;
-  width: 29%;
+.account-delivered p,.account-in-transit p {
+  font-size: 20px;
+}
+.account-delivered, .account-in-transit {
+  text-align: center;  
+  height: 92px;
+  width: 260px;
   border-radius: 10px;
+  box-shadow: 1px 4px 7px 0px #003468;
 }
 .account-delivered, .account-in-transit {
   padding-top: 10px;

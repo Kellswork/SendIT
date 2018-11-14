@@ -65,6 +65,7 @@ header {
   display: flex;
   justify-content: center;
   color: #ffc20e;
+  cursor: pointer;
 }
 
 .logo::before {
@@ -172,12 +173,13 @@ padding: 8px;
 
 .box-one {
   height: 74px;
-  background: #dcdcdc94;
+  background: #f8f8f9;
   display: flex;
-  margin: 0 auto;
+  margin: 20px auto 0px;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  
 }
 .box-one h2 {
   width: 50%;
@@ -203,6 +205,7 @@ padding: 8px;
   margin-left: 50px;
   text-align: center;
   font-weight: bold;
+  border: 1px solid #003468;
 }
 .create-order-button:active {
   position: relative;
@@ -220,7 +223,7 @@ padding: 8px;
 }
 .search-container button {
   position: absolute;
-  margin-left: -43px;
+  margin-left: -47px;
   width: 40px;
   border: none;
   outline: none;
@@ -228,12 +231,13 @@ padding: 8px;
   color: #003468;
   background: white;
   top: 7px;
+  cursor: pointer;
 }
 .search-container .search-input {
   height: 35px;
-  border-radius: 5px;
+  border-radius: 20px;
   outline: none;
-  width: 40%;
+  width: 60%;
   border: 3px solid #003468;
   padding-left: 10px;
 }
@@ -310,11 +314,10 @@ tr:nth-child(even){
 td a {
   color: currentColor;
   text-decoration: none;
-  border-bottom:1px solid blue;
   opacity: 0.8;
 }
 td a:hover {
-  color: red;
+  color: #ffc20e;
 }
 .pagination {
   width: 95%;
@@ -324,7 +327,7 @@ td a:hover {
 
   float: right;
   margin-top: 10px;
-  padding: 8px 16px;
+  padding: 4px 10px;
   text-decoration: none;
   color: #003468;
   transition: background-color 300ms;
@@ -341,12 +344,15 @@ td a:hover {
   background: #003468;
   color: white;
 }
-
+.icon {
+  cursor: pointer;
+}
 
 /* create order box */
 .content form {
   width: 50%;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 .new-order {
   width: 100%;
@@ -546,9 +552,6 @@ td span {
 }
 th {
   font-size: 17px;
-}
-.notification {
-  display: none;
 }
 .content form {
   width: 90%;
