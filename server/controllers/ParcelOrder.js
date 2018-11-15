@@ -1,25 +1,26 @@
-import parcel from '../models/parcel';
+import parcels from '../models/parcels';
 
 class ParcelOrder {
-  static getAllparcelOrders(req, res) {
-    if (!parcel || parcel === null) {
+  static getAllParcelOrders(req, res) {
+    if (parcels.length <= 0) {
       return res.status(404).json({
         success: false,
-        Message: 'No parcel delivery order has been created',
+        message: 'No parcel delivery order has been created',
       });
     }
     return res.status(200).json({
       success: true,
       message: 'Parcel delivery orders',
-      parcel,
+      parcels,
     });
   }
 
   static getOneParcelOrder(req, res) {
-    const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
+    const { id } = req.params;
+    const oneParcel = parcels.find(parcel => parcel.id === parseInt(id, 10));
     if (!oneParcel) {
       return res.status(404).json({
-        Success: false,
+        success: false,
         message: 'Parcel delivery order does not exist',
       });
     }
@@ -31,23 +32,27 @@ class ParcelOrder {
   }
 
   static createParcelOrder(req, res) {
+    const {
+      name, productName, pickupAddress, destinationAddress,
+    } = req.body;
     const newParcel = {
-      id: parcel.length + 1,
-      name: req.body.name,
-      productName: req.body.productName,
-      pickupAddress: req.body.pickupAddress,
-      destinationAddress: req.body.destinationAddress,
+      id: parcels[parcels.length - 1].id + 1,
+      name,
+      productName,
+      pickupAddress,
+      destinationAddress,
     };
-    parcel.push(newParcel);
+    parcels.push(newParcel);
     res.status(201).json({
       success: true,
       message: 'Parcel delivery order created successfully',
-      details: newParcel,
+      details: parcels,
     });
   }
 
   static cancelParcelOrder(req, res) {
-    const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
+    const { id } = req.params;
+    const oneParcel = parcels.find(parcel => parcel.id === parseInt(id, 10));
     if (!oneParcel) {
       return res.status(404).json({
         success: false,

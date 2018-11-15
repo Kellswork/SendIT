@@ -1,4 +1,4 @@
-const parcel = [
+const parcels = [
   {
     id: 1,
     userId: 101,
@@ -70,4 +70,4 @@ const parcel = [
   },
 ];
 
-export default parcel;
+export default parcels;

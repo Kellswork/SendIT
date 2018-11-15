@@ -24,6 +24,11 @@ const users = [
     name: 'della tabel',
     email: 'dellatabel@gmail.com',
   },
+  {
+    userId: 106,
+    name: 'daffy duff',
+    email: 'daffyduff@gmail.com',
+  },
 ];
 
 export default users;
