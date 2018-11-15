@@ -1,22 +1,33 @@
 import parcel from '../models/parcel';
 
-class parcelOrder {
+class ParcelOrder {
   static getAllparcelOrders(req, res) {
-    res.status(200).json({
-      message: ' Parcel orders',
+    if (!parcel || parcel === null) {
+      return res.status(404).json({
+        success: false,
+        Message: 'No parcel delivery order has been created',
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      message: 'Parcel delivery orders',
       parcel,
     });
   }
 
   static getOneParcelOrder(req, res) {
     const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
-    if (!oneParcel) res.status(404).json('Parcel does not exist');
-    else {
-      res.status(200).json({
-        message: 'parcel order',
-        Details: oneParcel,
+    if (!oneParcel) {
+      return res.status(404).json({
+        Success: false,
+        message: 'Parcel delivery order does not exist',
       });
     }
+    return res.status(200).json({
+      success: true,
+      message: 'Parcel delivery order details',
+      details: oneParcel,
+    });
   }
 
   static createParcelOrder(req, res) {
@@ -29,22 +40,27 @@ class parcelOrder {
     };
     parcel.push(newParcel);
     res.status(201).json({
-      message: 'Parcel order successfully created',
-      Details: newParcel,
+      success: true,
+      message: 'Parcel delivery order created successfully',
+      details: newParcel,
     });
   }
 
   static cancelParcelOrder(req, res) {
     const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
-    if (!oneParcel) res.status(404).json('Parcel does not exist');
-    else {
-      oneParcel.status = 'canceled';
-      res.status(200).json({
-        message: 'Your parcel delivery order has been canceled',
-        Details: oneParcel,
+    if (!oneParcel) {
+      return res.status(404).json({
+        success: false,
+        message: 'Parcel does not exist',
       });
     }
+    oneParcel.status = 'cancelled';
+    return res.status(200).json({
+      success: true,
+      message: 'Your parcel delivery order has been cancelled',
+      details: oneParcel,
+    });
   }
 }
 
-export default parcelOrder;
+export default ParcelOrder;

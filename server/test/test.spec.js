@@ -18,6 +18,7 @@ describe('/api/v1/parcels', () => {
         .expect(200)
         .end((err, res) => {
           expect(res.status).to.equal(200);
+          expect(res.body).to.have.property('success');
           expect(res.body).to.have.property('message');
           expect(res.body).to.have.property('parcel');
           expect(res.body.parcel).to.be.a('array');
@@ -34,13 +35,14 @@ describe('/api/v1/parcels', () => {
         .expect(200)
         .end((err, res) => {
           expect(res.status).to.equal(200);
+          expect(res.body).to.have.property('success');
           expect(res.body).to.have.property('message');
-          expect(res.body).to.have.property('Details');
-          expect(res.body.Details).to.be.a('object');
-          expect(res.body.Details).to.be.have.property('name');
-          expect(res.body.Details).to.be.have.property('productName');
-          expect(res.body.Details).to.be.have.property('pickupAddress');
-          expect(res.body.Details).to.be.have.property('destinationAddress');
+          expect(res.body).to.have.property('details');
+          expect(res.body.details).to.be.a('object');
+          expect(res.body.details).to.be.have.property('name');
+          expect(res.body.details).to.be.have.property('productName');
+          expect(res.body.details).to.be.have.property('pickupAddress');
+          expect(res.body.details).to.be.have.property('destinationAddress');
           done();
         });
     });
@@ -58,21 +60,22 @@ describe('/api/v1/parcels', () => {
   });
 
   describe('Cancel a parcel delivery order', () => {
-    it('Should update the status to canceled ', (done) => {
+    it('Should update the status to cancelled ', (done) => {
       api.put('/api/v1/parcels/3/cancel')
         .set('Content-Type', 'application/json')
         .send()
         .expect(200)
         .end((err, res) => {
           expect(res.status).to.equal(200);
+          expect(res.body).to.have.property('success');
           expect(res.body).to.have.property('message');
-          expect(res.body).to.have.property('Details');
-          expect(res.body.Details).to.have.property('name');
-          expect(res.body.Details).to.have.property('productName');
-          expect(res.body.Details).to.have.property('pickupAddress');
-          expect(res.body.Details).to.have.property('destinationAddress');
-          expect(res.body.Details).to.have.property('status');
-          expect(res.body.Details.status).to.equal('canceled');
+          expect(res.body).to.have.property('details');
+          expect(res.body.details).to.have.property('name');
+          expect(res.body.details).to.have.property('productName');
+          expect(res.body.details).to.have.property('pickupAddress');
+          expect(res.body.details).to.have.property('destinationAddress');
+          expect(res.body.details).to.have.property('status');
+          expect(res.body.details.status).to.equal('cancelled');
 
           done();
         });
@@ -87,10 +90,11 @@ describe('/api/v1/parcels', () => {
         .expect(200)
         .end((err, res) => {
           expect(res.status).to.equal(200);
+          expect(res.body).to.have.property('success');
           expect(res.body).to.have.property('message');
-          expect(res.body).to.have.property('Details');
-          expect(res.body).to.have.property('Details');
-          expect(res.body.Details).to.be.a('array');
+          expect(res.body).to.have.property('details');
+          expect(res.body).to.have.property('details');
+          expect(res.body.details).to.be.a('array');
           done();
         });
     });
