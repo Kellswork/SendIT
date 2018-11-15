@@ -1,14 +1,14 @@
 import express from 'express';
-import Parcelorder from '../controllers/index';
+import ParcelOrder from '../controllers/index';
 
 const router = express.Router();
 
 export default router;
 
-router.get('/', Parcelorder.getAllparcelOrders);
+router.get('/', ParcelOrder.getAllparcelOrders);
 
-router.get('/:id', Parcelorder.getOneParcelOrder);
+router.get('/:id', ParcelOrder.getOneParcelOrder);
 
-router.post('/', Parcelorder.createParcelOrder);
+router.post('/', ParcelOrder.createParcelOrder);
 
-router.put('/:id/cancel', Parcelorder.cancelParcelOrder);
+router.put('/:id/cancel', ParcelOrder.cancelParcelOrder);

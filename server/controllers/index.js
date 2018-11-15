@@ -1,6 +1,6 @@
 import parcel from '../models/parcel';
 
-class Parcelorder {
+class ParcelOrder {
   static getAllparcelOrders(req, res) {
     if (!parcel || parcel === null) {
       return res.status(404).json({
@@ -63,4 +63,4 @@ class Parcelorder {
   }
 }
 
-export default Parcelorder;
+export default ParcelOrder;
