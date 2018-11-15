@@ -2,7 +2,12 @@ import parcel from '../models/parcel';
 
 class Parcelorder {
   static getAllparcelOrders(req, res) {
-    res.status(200).json({
+    if (!parcel || parcel === null) {
+      return res.status(404).json({
+        message: 'No parcel delivery order has been created',
+      });
+    }
+    return res.status(200).json({
       message: ' Parcel orders',
       parcel,
     });
@@ -10,13 +15,11 @@ class Parcelorder {
 
   static getOneParcelOrder(req, res) {
     const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
-    if (!oneParcel) res.status(404).json('Parcel does not exist');
-    else {
-      res.status(200).json({
-        message: 'parcel order',
-        Details: oneParcel,
-      });
-    }
+    if (!oneParcel) return res.status(404).json('Parcel does not exist');
+    return res.status(200).json({
+      message: 'parcel order',
+      Details: oneParcel,
+    });
   }
 
   static createParcelOrder(req, res) {
@@ -37,9 +40,9 @@ class Parcelorder {
   static cancelParcelOrder(req, res) {
     const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
     if (!oneParcel) return res.status(404).json('Parcel does not exist');
-    oneParcel.status = 'canceled';
+    oneParcel.status = 'cancelled';
     return res.status(200).json({
-      message: 'Your parcel delivery order has been canceled',
+      message: 'Your parcel delivery order has been cancelled',
       Details: oneParcel,
     });
   }
