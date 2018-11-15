@@ -71,6 +71,17 @@ describe('/api/v1/parcels', () => {
         });
     });
 
+    it('should return a status code of 406 if order delivery status is cancelled', (done) => {
+      api.put('/api/v1/parcels/7/cancel')
+        .set('Content-Type', 'application/json')
+        .send()
+        .expect(406)
+        .end((err, res) => {
+          expect(res.status).to.equal(406);
+          done();
+        });
+    });
+
     // it('Should update parcel delivery order status to cancelled ', (done) => {
     //   api.put('/api/v1/parcels/3/cancel')
     //     .set('Content-Type', 'application/json')

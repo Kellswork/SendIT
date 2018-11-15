@@ -6,7 +6,7 @@ class ParcelOrder {
     if (parcels.length <= 0) {
       return res.status(404).json({
         success: false,
-        message: 'No parcel delivery order has been created',
+        error: 'No parcel delivery order has been created',
       });
     }
     return res.status(200).json({
@@ -22,7 +22,7 @@ class ParcelOrder {
     if (!oneParcel) {
       return res.status(404).json({
         success: false,
-        message: 'Parcel delivery order does not exist',
+        error: 'Parcel delivery order does not exist',
       });
     }
     return res.status(200).json({
@@ -37,7 +37,7 @@ class ParcelOrder {
     if (error) {
       return res.status(400).json({
         success: false,
-        message: error.details[0].message,
+        error: error.details[0].message,
       });
     }
 
@@ -65,18 +65,18 @@ class ParcelOrder {
     if (!oneParcel) {
       return res.status(404).json({
         success: false,
-        message: 'Parcel does not exist',
+        error: 'Parcel does not exist',
       });
     } if (oneParcel.status === 'delivered') {
       return res.status(406).json({
         success: false,
-        message: 'Cannot cancel a parcel delivery order that has already been delivered',
+        error: 'Cannot cancel a parcel delivery order that has already been delivered',
       });
     }
     if (oneParcel.status === 'cancelled') {
       return res.status(406).json({
         success: false,
-        message: 'Parcel delivery order has  already been cancelled',
+        error: 'Parcel delivery order has already been cancelled',
       });
     }
     oneParcel.status = 'cancelled';

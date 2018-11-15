@@ -4,9 +4,9 @@ import parcels from '../models/parcels';
 class User {
   static getAllUsers(req, res) {
     if (users.length <= 0) {
-      return res.json({
+      return res.status(404).json({
         success: false,
-        message: 'No user found',
+        error: 'No user found',
       });
     }
     return res.status(200).json({
@@ -22,7 +22,7 @@ class User {
     if (userParcel.length <= 0) {
       return res.status(404).json({
         success: false,
-        message: 'You have not created any parcel develivery order',
+        error: 'You have not created any parcel delivery order',
       });
     }
     return res.status(200).json({
