@@ -1,7 +1,7 @@
 import user from '../models/users';
 import parcel from '../models/parcel';
 
-class Users {
+class User {
   static getAllUsers(req, res) {
     res.status(200).send(user);
   }
@@ -19,4 +19,4 @@ class Users {
   }
 }
 
-export default Users;
+export default User;

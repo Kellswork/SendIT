@@ -22,7 +22,7 @@ SendIT is a courier service that helps users deliver parcels to different destin
 - User gets real-time email notification when Admin changes the status of their parcel.
 - User gets real-time email notification when Admin changes the present loaction of their parcel.
 
-# TECHNOLOGIES
+## TECHNOLOGIES
 
 ### Client Side:
 
@@ -39,3 +39,22 @@ The backend was implemented using:
 - [Express]() Express is a minimal and flexible Node.js web application framework
 - [PostgreSQL]() POSTGRESQL: The world's most advanced open source relational database
 
+## INSTALLATION
+- Install Node js
+- Clone the repository `https://github.com/Kellswork/SendIT.git`
+- Navigate to the location of the folder
+- Run `npm install` to install dependencies
+- Run `npm start` to get the app started on your local machine
+
+## TESTING 
+### Server Side
+To run tests for the server side
+
+- Navigate to the location of the folder in your terminal
+- Run `npm run test` to run app tests
+- Run `npm run coverage` to run test coverage with [istanbul]() on the app
+
+The UI templates for this app can be viewed on Github pages with this link [SendIT](https://kellswork.github.io/SendIT/)
+
+## License
+MIT (c) 2018 Kelechi Ogbonna
