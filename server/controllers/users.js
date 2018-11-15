@@ -5,7 +5,7 @@ class User {
   static getAllUsers(req, res) {
     if (!user || user === null) {
       return res.json({
-        Success: false,
+        success: false,
         message: 'No user found',
       });
     }
@@ -17,9 +17,9 @@ class User {
     // get all parcel orders with the userId
     if (!userParcel || userParcel === null) return res.status(404).json('You have not created any parcel delivery order');
     return res.status(200).json({
-      Success: true,
+      success: true,
       message: 'Parcel delivery orders you have created',
-      Details: userParcel,
+      details: userParcel,
     });
   }
 }

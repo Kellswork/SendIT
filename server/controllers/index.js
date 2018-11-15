@@ -4,13 +4,13 @@ class ParcelOrder {
   static getAllparcelOrders(req, res) {
     if (!parcel || parcel === null) {
       return res.status(404).json({
-        Success: false,
+        success: false,
         Message: 'No parcel delivery order has been created',
       });
     }
     return res.status(200).json({
-      Success: true,
-      Message: 'Parcel delivery orders',
+      success: true,
+      message: 'Parcel delivery orders',
       parcel,
     });
   }
@@ -20,13 +20,13 @@ class ParcelOrder {
     if (!oneParcel) {
       return res.status(404).json({
         Success: false,
-        Message: 'Parcel delivery order does not exist',
+        message: 'Parcel delivery order does not exist',
       });
     }
     return res.status(200).json({
-      Success: true,
-      Message: 'Parcel delivery order details',
-      Details: oneParcel,
+      success: true,
+      message: 'Parcel delivery order details',
+      details: oneParcel,
     });
   }
 
@@ -40,9 +40,9 @@ class ParcelOrder {
     };
     parcel.push(newParcel);
     res.status(201).json({
-      Success: true,
-      Message: 'Parcel delivery order created successfully',
-      Details: newParcel,
+      success: true,
+      message: 'Parcel delivery order created successfully',
+      details: newParcel,
     });
   }
 
@@ -50,15 +50,15 @@ class ParcelOrder {
     const oneParcel = parcel.find(x => x.id === parseInt(req.params.id, 10));
     if (!oneParcel) {
       return res.status(404).json({
-        Success: false,
-        Message: 'Parcel does not exist',
+        success: false,
+        message: 'Parcel does not exist',
       });
     }
     oneParcel.status = 'cancelled';
     return res.status(200).json({
-      Success: true,
+      success: true,
       message: 'Your parcel delivery order has been cancelled',
-      Details: oneParcel,
+      details: oneParcel,
     });
   }
 }
