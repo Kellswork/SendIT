@@ -1,4 +1,5 @@
 import parcels from '../models/parcels';
+import validateParcelOrder from '../middlewares/parcelOrder';
 
 class ParcelOrder {
   static getAllParcelOrders(req, res) {
@@ -32,6 +33,14 @@ class ParcelOrder {
   }
 
   static createParcelOrder(req, res) {
+    const { error } = validateParcelOrder(req.body);
+    if (error) {
+      return res.status(400).json({
+        success: false,
+        message: error.details[0].message,
+      });
+    }
+
     const {
       name, productName, pickupAddress, destinationAddress,
     } = req.body;
@@ -43,7 +52,7 @@ class ParcelOrder {
       destinationAddress,
     };
     parcels.push(newParcel);
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       message: 'Parcel delivery order created successfully',
       details: parcels,
@@ -57,6 +66,17 @@ class ParcelOrder {
       return res.status(404).json({
         success: false,
         message: 'Parcel does not exist',
+      });
+    } if (oneParcel.status === 'delivered') {
+      return res.status(406).json({
+        success: false,
+        message: 'Cannot cancel a parcel delivery order that has already been delivered',
+      });
+    }
+    if (oneParcel.status === 'cancelled') {
+      return res.status(406).json({
+        success: false,
+        message: 'Parcel delivery order has  already been cancelled',
       });
     }
     oneParcel.status = 'cancelled';
