@@ -1,11 +1,12 @@
 import parcels from '../models/parcels';
+import validateParcelOrder from '../middlewares/parcelOrder';
 
 class ParcelOrder {
   static getAllParcelOrders(req, res) {
     if (parcels.length <= 0) {
       return res.status(404).json({
         success: false,
-        message: 'No parcel delivery order has been created',
+        error: 'No parcel delivery order has been created',
       });
     }
     return res.status(200).json({
@@ -21,7 +22,7 @@ class ParcelOrder {
     if (!oneParcel) {
       return res.status(404).json({
         success: false,
-        message: 'Parcel delivery order does not exist',
+        error: 'Parcel delivery order does not exist',
       });
     }
     return res.status(200).json({
@@ -32,6 +33,14 @@ class ParcelOrder {
   }
 
   static createParcelOrder(req, res) {
+    const { error } = validateParcelOrder(req.body);
+    if (error) {
+      return res.status(400).json({
+        success: false,
+        error: error.details,
+      });
+    }
+
     const {
       name, productName, pickupAddress, destinationAddress,
     } = req.body;
@@ -43,7 +52,7 @@ class ParcelOrder {
       destinationAddress,
     };
     parcels.push(newParcel);
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       message: 'Parcel delivery order created successfully',
       details: parcels,
@@ -56,7 +65,18 @@ class ParcelOrder {
     if (!oneParcel) {
       return res.status(404).json({
         success: false,
-        message: 'Parcel does not exist',
+        error: 'Parcel does not exist',
+      });
+    } if (oneParcel.status === 'delivered') {
+      return res.status(406).json({
+        success: false,
+        error: 'Cannot cancel a parcel delivery order that has already been delivered',
+      });
+    }
+    if (oneParcel.status === 'cancelled') {
+      return res.status(406).json({
+        success: false,
+        error: 'Parcel delivery order has already been cancelled',
       });
     }
     oneParcel.status = 'cancelled';

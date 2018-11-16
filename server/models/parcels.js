@@ -55,7 +55,7 @@ const parcels = [
     productName: 'Gucci leather belt',
     pickupAddress: 'no 2 fox road detox avenue apapa lagos',
     destinationAddress: 'no 2 allen avenue oshodi lagos',
-    status: 'in transit',
+    status: 'pending',
 
   },
   {
@@ -65,7 +65,7 @@ const parcels = [
     productName: 'ring lights',
     pickupAddress: 'no 2 fox road detox avenue apapa lagos',
     destinationAddress: 'no 2 allen avenue oshodi lagos',
-    status: 'delivered',
+    status: 'cancelled',
 
   },
 ];
