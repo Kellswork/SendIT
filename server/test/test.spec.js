@@ -217,7 +217,7 @@ describe('/api/v1/parcels', () => {
         });
     });
 
-    it('should retutn a status of 404 is user has not created any parcel delivery order', (done) => {
+    it('should retutn a status of 404 if user has not created any parcel delivery order', (done) => {
       api.get('/api/v1/users/106/parcels')
         .set('Content-Type', 'application/json')
         .send()
