@@ -9,7 +9,21 @@ describe('/api/v1/parcels', () => {
     server.close();
     done();
   });
-
+  describe('Get home route', () => {
+    it('should display a welcome message', (done) => {
+      api.get('/')
+        .set('Content-Type', 'application/json')
+        .send()
+        .expect(200)
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.have.property('success');
+          expect(res.body).to.have.property('message');
+          expect(res.body.success).to.equal(true);
+          done();
+        });
+    });
+  });
   describe('Get all parcel delivery', () => {
     it('should get all parcel delivery order', (done) => {
       api.get('/api/v1/parcels')
@@ -22,6 +36,7 @@ describe('/api/v1/parcels', () => {
           expect(res.body).to.have.property('message');
           expect(res.body).to.have.property('parcels');
           expect(res.body.parcels).to.be.a('array');
+          expect(res.body.success).to.equal(true);
           done();
         });
     });
