@@ -15,10 +15,26 @@ class User {
     });
   }
 
+  static getOneUser(req, res) {
+    const { userId } = req.params;
+    const oneUser = users.find(user => user.userId === parseInt(userId, 10));
+    if (!oneUser) {
+      return res.status(404).json({
+        success: false,
+        error: 'User does not exists',
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      message: 'User Details',
+      details: oneUser,
+    });
+  }
+
   static getAllParcelOrderCreatedByUser(req, res) {
     const { userId } = req.params;
     const userParcel = parcels.filter(parcel => parcel.userId === parseInt(userId, 10));
-    // get all parcel orders with the userId
+
     if (userParcel.length <= 0) {
       return res.status(404).json({
         success: false,

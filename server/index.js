@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import route from './routes/index';
 import user from './routes/users';
+import logger from './config/winston';
 
 const app = express();
 
@@ -18,7 +19,6 @@ app.use((req, res, next) => {
 
 const port = process.env.PORT || 8080;
 
-const server = app.listen(port);
-console.log(`SendIT started on ${port}`);
+const server = app.listen(port, () => logger.info(`app started at ${port}`));
 
 export default server;

@@ -7,3 +7,5 @@ export default router;
 router.get('/', User.getAllUsers);
 
 router.get('/:userId/parcels', User.getAllParcelOrderCreatedByUser);
+
+router.get('/:userId', User.getOneUser);
