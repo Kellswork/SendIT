@@ -6,6 +6,10 @@ import logger from './config/winston';
 
 const app = express();
 
+app.get('/', (req, res) => res.status(200).json({
+  success: true,
+  message: 'Welcome to SendIT courier service',
+}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

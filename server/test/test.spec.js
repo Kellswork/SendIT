@@ -9,7 +9,21 @@ describe('/api/v1/parcels', () => {
     server.close();
     done();
   });
-
+  describe('Get home route', () => {
+    it('should display a welcome message', (done) => {
+      api.get('/')
+        .set('Content-Type', 'application/json')
+        .send()
+        .expect(200)
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.have.property('success');
+          expect(res.body).to.have.property('message');
+          expect(res.body.success).to.equal(true);
+          done();
+        });
+    });
+  });
   describe('Get all parcel delivery', () => {
     it('should get all parcel delivery order', (done) => {
       api.get('/api/v1/parcels')
@@ -22,6 +36,7 @@ describe('/api/v1/parcels', () => {
           expect(res.body).to.have.property('message');
           expect(res.body).to.have.property('parcels');
           expect(res.body.parcels).to.be.a('array');
+          expect(res.body.success).to.equal(true);
           done();
         });
     });
@@ -44,8 +59,8 @@ describe('/api/v1/parcels', () => {
     });
   });
 
-  describe('get one user', () => {
-    it('should get a specific user ', (done) => {
+  describe('Get one user', () => {
+    it('should get a specific user', (done) => {
       api.get('/api/v1/users/103')
         .set('Content-Type', 'application/json')
         .send()
@@ -79,7 +94,7 @@ describe('/api/v1/parcels', () => {
     });
   });
   describe('Get a specific parcel delivery', () => {
-    it('should get a specific parcel delivery order ', (done) => {
+    it('should get a specific parcel delivery order', (done) => {
       api.get('/api/v1/parcels/2')
         .set('Content-Type', 'application/json')
         .send()
@@ -98,7 +113,7 @@ describe('/api/v1/parcels', () => {
         });
     });
 
-    it('Should return 404 if parcel delivery order is not found', (done) => {
+    it('should return 404 if parcel delivery order is not found', (done) => {
       api.get('/api/v1/parcels/8')
         .set('Content-Type', 'application/json')
         .send()
@@ -138,7 +153,6 @@ describe('/api/v1/parcels', () => {
 
     it('should return 404 if user does not send details required', (done) => {
       const parcel = {
-        name: '',
         productName: 'ring lights',
         pickupAddress: 'no 2 fox road detox avenue apapa lagos',
         destinationAddress: 'no 2 allen avenue oshodi lagos',
@@ -218,7 +232,7 @@ describe('/api/v1/parcels', () => {
         });
     });
 
-    it('should 404 is user has not created any parcel delivery order', (done) => {
+    it('should retutn a status of 404 is user has not created any parcel delivery order', (done) => {
       api.get('/api/v1/users/106/parcels')
         .set('Content-Type', 'application/json')
         .send()
