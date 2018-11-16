@@ -155,7 +155,6 @@ i.fas.fa-bell {
 }
 .dropdown-notification ul {
   list-style: none;
-padding: 8px;
 }
 .dropdown-notification h3 {
   padding: 5px;
@@ -163,7 +162,8 @@ padding: 8px;
 }
 .dropdown-notification li {
   border-bottom: 1px solid #ffffff17;
-  padding: 2px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .dropdown-notification li:hover{
   color: #ffc20e;
@@ -313,7 +313,7 @@ tr:nth-child(even){
 }
 td a {
   color: currentColor;
-  text-decoration: none;
+  text-decoration-color: #003468;
   opacity: 0.8;
 }
 td a:hover {

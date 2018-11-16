@@ -81,18 +81,16 @@
   margin: 0 auto;
 }
 .account-order-details {
-  width: 100%;
+  width: 80%;
   text-align: left;
-  padding: 0px 50px;
+  margin: 0 auto;
 }
 table {
   border-spacing: 0px;
 }
 tbody {
-  text-align:  center;
-}
-tr:nth-child(even){
-  background: rgb(223, 219, 219);
+  text-align:left;
+  width: 100%;
 }
 
 hr {
