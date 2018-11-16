@@ -18,7 +18,7 @@ class User {
   static getAllParcelOrderCreatedByUser(req, res) {
     const { userId } = req.params;
     const userParcel = parcels.filter(parcel => parcel.userId === parseInt(userId, 10));
-    // get all parcel orders with the userId
+
     if (userParcel.length <= 0) {
       return res.status(404).json({
         success: false,
