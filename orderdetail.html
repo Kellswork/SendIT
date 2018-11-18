@@ -39,7 +39,7 @@
       </div>
       <div class="profile">
         <div class="profile-img">
-         <a href="profile.html"><img src="img/avatar-2.jpg" alt="image placeholder"></a> 
+         <img src="img/avatar-2.jpg" alt="image placeholder"> 
           <div class="dropdown-content">
             <a href="createorder.html">New Order</a>
             <a href="profile.html">Profile</a>
@@ -50,9 +50,23 @@
 
       </div>
     </header>
-
+    <div class="mobile-nav">
+        <div class="mobile-search">
+            <form action="/action_page.php">
+              <input class='search-input' type="text" placeholder="Search..." name="search">
+              <button type="submit"><i class="fa fa-search"></i>
+            </form>
+          </div>
+          <div class="mobile-link">
+              <a href="createorder.html">New Order</a>
+              <a href="profile.html">Profile</a>
+              <a href="order.html">Orders</a>
+              <a href="login.html">Logout</a>
+          </div>
+    </div>
     <section class="content">
       <div class="order-details">
+        <h2>Order Details</h2>
         <div class="one-order-detail">
          <div class="product-info">
             <h3>Product Name</h3>
@@ -67,9 +81,19 @@
               <h3>Destination Address</h3> 
               <p>Kelechi Ogbonna</p>
               <p> No 2 chief estate, woji, lagos     
-                <span class="destination-info-change">Chang e</span>
+                <span class="destination-info-change">Change Address</span>
+                <div class="modal">
+                    <form action="/" class='modal-content'>
+                        <span class="close">&times;</span>
+                        <input type="text" placeholder="Enter New Address">
+                        <input type="text" placeholder="LGA">
+                        <button class="modal-btn">confirm</button>
+                    </form>
+                </div>
               </p>
               <p>07032228321</p>
+             
+              
           </div>
         <div class="payment-info">
             <h3>Payment Method</h3>

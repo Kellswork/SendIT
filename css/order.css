@@ -241,6 +241,46 @@ i.fas.fa-bell {
   border: 3px solid #003468;
   padding-left: 10px;
 }
+.mobile-nav {
+  padding-top: 5%;
+  width: 95%;
+  margin: 0 auto;
+  display: none;
+}
+.mobile-search {
+  position: relative;
+  width: 100%;
+}
+.mobile-search input {
+  height: 35px;
+  border-radius: 10px;
+  outline: none;
+  width: 95%;
+  border: 3px solid #003468;
+}
+.mobile-search input::placeholder {
+  color: #003468;
+  padding-left: 2.5%;
+}
+.mobile-search button {
+  position: absolute;
+  margin-left: -47px;
+  width: 40px;
+  top: 7px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  color: #003468;
+  background: white;
+  cursor: pointer;
+}
+.mobile-link a{
+  display: block;
+  color: #003468;
+  font-weight: 900;
+  text-decoration: none;
+  border-bottom: 1px solid #00346847;
+}
 
 /* Content */
 .content {
@@ -498,27 +538,23 @@ input[type=radio]{
   }
   .box-one {
     display: block;
-    min-height: 95px;
-    background: #dcdcdc94;
   }
   .create-order {
-    width: 100%;
-    margin-left: 50px;
-    margin-bottom: 20px;
-    padding-top: 7px;
+ display: none;
   }
   a.create-order-button {
-    font-size: 16px;
-    border-radius: 8px;
-    margin-top: 5px;
+  display: none;
   }
-  .search-container .search-input {
-    width: 80%;
-    margin-left: 30px;
+  .search-container{
+   display: none
   }
-  .search-container {
-    width: 100%;
- }
+
+.box-one {
+  height: 20px;
+}
+.box-one h2 {
+  margin-left: 2.5%;
+}
  .orders {
    width: 100%;
 
@@ -562,5 +598,14 @@ th {
 }
 .my-order {
   width: 100%;
+}
+.dropdown-notification {
+  right: -50px;
+}
+.notification {
+  padding-left: 20%;
+}
+.profile-img:hover .dropdown-content {
+  display: none;
 }
 }

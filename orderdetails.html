@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Orders | SendIT </title>
+  <title>Orders | SendIT </title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="css/order.css">
   <link rel="stylesheet" href="css/orderdetail.css">
@@ -38,7 +38,7 @@
       </div>
       <div class="profile">
         <div class="profile-img">
-         <a href="profile.html"><img src="img/avatar.png" alt="image placeholder"></a> 
+        <img src="img/avatar.png" alt="image placeholder"> 
           <div class="dropdown-content">
             <a href="createorder.html">New Order</a>
             <a href="profile.html">Profile</a>
@@ -48,9 +48,23 @@
         </div>
       </div>
     </header>
-
+    <div class="mobile-nav">
+        <div class="mobile-search">
+            <form action="/action_page.php">
+              <input class='search-input' type="text" placeholder="Search..." name="search">
+              <button type="submit"><i class="fa fa-search"></i>
+            </form>
+          </div>
+          <div class="mobile-link">
+              <a href="createorder.html">New Order</a>
+              <a href="profile.html">Profile</a>
+              <a href="order.html">Orders</a>
+              <a href="login.html">Logout</a>
+          </div>
+    </div>
     <section class="content">
       <div class="order-details">
+          <h2>Order Details</h2>
         <div class="one-order-detail">
          <div class="product-info">
             <h3>Product Name</h3>

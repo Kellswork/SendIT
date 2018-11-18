@@ -441,13 +441,16 @@ footer {
 
 .toggle {
   display: none;
-  padding-right: 20px;
+  margin-right: 20px;
   font-size: 25px;
   cursor: pointer;
+  text-align: center;
+  color: #ffc20e;
 }
 .toggle:hover {
-  color: yellow;
+  background: none;
 }
+
 .mobile-nav{
   color: black;
   display: none;
@@ -462,6 +465,7 @@ footer {
   text-decoration: none;
   text-align: center;
   padding-bottom: 8px;
+  border-bottom: 1px solid #ffffff2b;
 }
 .mobile-nav a:hover {
   background: #ffc20e;
@@ -495,6 +499,7 @@ header ul a {
   font-size: 1.0em;
   padding-top: 5px;
   padding-bottom: 10px;
+  text-align: center;
 }
 button {
   margin: 20px 35px 10px 35px;

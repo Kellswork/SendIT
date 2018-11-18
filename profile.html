@@ -40,7 +40,7 @@
       </div>
       <div class="profile">
         <div class="profile-img">
-          <a href="profile.html"><img src="img/avatar-2.jpg" alt="image placeholder"></a>
+          <img src="img/avatar-2.jpg" alt="image placeholder">
           <div class="dropdown-content">
             <a href="createorder.html">New Order</a>
             <a href="profile.html">Profile</a>
@@ -53,7 +53,20 @@
 
 
     </header>
-
+    <div class="mobile-nav">
+        <div class="mobile-search">
+            <form action="/action_page.php">
+              <input class='search-input' type="text" placeholder="Search..." name="search">
+              <button type="submit"><i class="fa fa-search"></i>
+            </form>
+          </div>
+          <div class="mobile-link">
+              <a href="createorder.html">New Order</a>
+              <a href="profile.html">Profile</a>
+              <a href="order.html">Orders</a>
+              <a href="login.html">Logout</a>
+          </div>
+    </div>
     <section class="account-container">
       <div class="account">
         <div class="account-img">
@@ -84,36 +97,40 @@
       <hr>
       <div class="orders">
         <h3>Order Details</h3>
-        <table class="account-order-details">
-          <tr>
-            <th>Order ID</th>
-            <th>Date</th>
-            <th>Price</th>
-            <th>Status</th>
-          </tr>
-          <tr>
-            <td><a href="orderdetail.html">#22338</a></td>
-            <td>20-12-2018</td>
-            <td>N2000</td>
-            <td>In transit</td>
-            <td class="nav"><i class="fas fa-ellipsis-v"></i><span class="details">
-                <p>edit</p>
-              </span></td>
-          </tr>
-          <tr>
-            <td><a href="orderdetail.html">#22338</a></td>
-            <td>20-12-2018</td>
-            <td>N2000</td>
-            <td>In transit</td>
-            <td class="nav"><i class="fas fa-ellipsis-v"></i><span class="details">
-                <p>edit</p>
-              </span></td>
-          </tr>
-        </table>
-        <div class="pagination">
-          <a href="#"><i class="fas fa-angle-double-right"></i></a>
-          <a href="#"><i class="fas fa-angle-double-left"></i></a>
+        <div>
+            <table class="account-order-details">
+                <tr>
+                  <th>Order ID</th>
+                  <th>Date</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                </tr>
+                <tr>
+                  <td><a href="orderdetail.html">#22338</a></td>
+                  <td>20-12-2018</td>
+                  <td>N2000</td>
+                  <td>In transit</td>
+                  <td class="nav"><i class="fas fa-ellipsis-v"></i><span class="details">
+                      <p>edit</p>
+                    </span></td>
+                </tr>
+                <tr>
+                  <td><a href="orderdetail.html">#22338</a></td>
+                  <td>20-12-2018</td>
+                  <td>N2000</td>
+                  <td>In transit</td>
+                  <td class="nav"><i class="fas fa-ellipsis-v"></i><span class="details">
+                      <p>edit</p>
+                    </span></td>
+                </tr>
+              </table>
+              <div class="pagination">
+                  <a href="#"><i class="fas fa-angle-double-right"></i></a>
+                  <a href="#"><i class="fas fa-angle-double-left"></i></a>
+                </div>
         </div>
+        
+       
       </div>
     </section>
     </section>
