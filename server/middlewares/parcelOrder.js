@@ -8,7 +8,7 @@ const validateParcelOrder = (parcelOrder) => {
     destinationAddress: Joi.string().min(10).max(250).required(),
     status: Joi.string().required(),
   };
-  return Joi.validate(parcelOrder, schema);
+  return Joi.validate(parcelOrder, schema, { abortEarly: false });
 };
 
 export default validateParcelOrder;

@@ -35,12 +35,12 @@ class ParcelOrder {
   static createParcelOrder(req, res) {
     const { error } = validateParcelOrder(req.body);
     if (error) {
+      const errorMessage = error.details.map(element => element.message);
       return res.status(400).json({
         success: false,
-        error: error.details,
+        error: errorMessage,
       });
     }
-
     const {
       name, productName, pickupAddress, destinationAddress,
     } = req.body;
