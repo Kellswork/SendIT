@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'production') {
   pool = new Pool({ connectionString: config.production });
 }
 logger.info(`${config.development}, ${process.env.NODE_ENV}`);
-pool.connect().then(() => logger.info('connected to db')).catch(() => logger.error('Not connected...'));
+pool.connect().then(() => logger.info('connected to db')).catch(() => logger.error('Not connected to db...'));
 
 
 const db = {
