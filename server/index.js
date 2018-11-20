@@ -14,7 +14,7 @@ app.get('/', (req, res) => res.status(200).json({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/api/v1/signup', auth);
+app.use('/api/v1/auth', auth);
 app.use('/api/v1/parcels', parcel);
 app.use((req, res, next) => {
   const error = new Error('Page Not Found');
