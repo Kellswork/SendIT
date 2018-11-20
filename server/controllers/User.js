@@ -45,8 +45,10 @@ class User {
 
       return res.header('x-auth-token', token).status(201).json({
         status: 201,
-        message: 'user was successfully created',
-        data: rows,
+        data: [{
+          message: 'user was successfully created',
+          user: rows[0],
+        }],
       });
     } catch (err) {
       return res.status(500).json({
@@ -95,8 +97,11 @@ class User {
     try {
       return res.header('x-auth-token', token).status(200).json({
         status: 200,
-        message: 'login successful',
-        data: [rows.rows[0]],
+        data: [{
+          message: 'login successful',
+          token,
+          user: rows.rows[0],
+        }],
       });
     } catch (err) {
       return res.status(500).json({
