@@ -5,7 +5,7 @@ dotenv.config();
 const auth = (req, res, next) => {
   const token = req.header('x-auth-token');
   if (!token) {
-    res.status(400).json({
+    res.status(401).json({
       status: 401,
       error: 'access denied, no token provided',
     });
