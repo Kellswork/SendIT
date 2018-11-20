@@ -1,14 +1,10 @@
 import express from 'express';
-import ParcelOrder from '../controllers/ParcelOrder';
+import Parcel from '../controllers/Parcel';
+import auth from '../middlewares/authentication';
 
 const router = express.Router();
 
 export default router;
 
-router.get('/', ParcelOrder.getAllParcelOrders);
-
-router.get('/:id', ParcelOrder.getOneParcelOrder);
-
-router.post('/', ParcelOrder.createParcelOrder);
-
-router.put('/:id/cancel', ParcelOrder.cancelParcelOrder);
+router.get('/', auth, Parcel.getAllParcelDeliveryOrders);
+router.get('/', auth, Parcel.getOneParcelDeliveryOrder);

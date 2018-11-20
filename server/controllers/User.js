@@ -10,7 +10,7 @@ dotenv.config();
 class User {
   static async createUser(req, res) {
     const {
-      firstname, lastname, username, email,
+      firstname, lastname, username, email, phonenumber,
     } = req.body;
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash(req.body.password, salt);
@@ -31,7 +31,7 @@ class User {
     }
 
     try {
-      const { rows } = await db.query('INSERT INTO users(firstname, lastname, email, username, password) VALUES($1,$2,$3,$4,$5) RETURNING *', [firstname, lastname, email, username, password]);
+      const { rows } = await db.query('INSERT INTO users(firstname, lastname, email, username, password, phonenumber) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [firstname, lastname, email, username, password, phonenumber]);
 
       const userId = await db.query('SELECT id FROM users WHERE email = $1', [email]);
       const admin = await db.query('SELECT is_admin FROM users WHERE email = $1', [email]);
@@ -47,6 +47,7 @@ class User {
         status: 201,
         data: [{
           message: 'user was successfully created',
+          token,
           user: rows[0],
         }],
       });
