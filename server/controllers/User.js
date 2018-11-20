@@ -1,7 +1,11 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 import validateUser from '../middlewares/user';
 import db from '../models/db/index';
 import validateUserLogin from '../middlewares/login';
+
+dotenv.config();
 
 class User {
   static async createUser(req, res) {
@@ -28,7 +32,18 @@ class User {
 
     try {
       const { rows } = await db.query('INSERT INTO users(firstname, lastname, email, username, password) VALUES($1,$2,$3,$4,$5) RETURNING *', [firstname, lastname, email, username, password]);
-      return res.status(201).json({
+
+      const userId = await db.query('SELECT id FROM users WHERE email = $1', [email]);
+      const admin = await db.query('SELECT is_admin FROM users WHERE email = $1', [email]);
+      const name = await db.query('SELECT firstname ||\' \'|| lastname as name FROM users WHERE email=$1', [email]);
+      const token = jwt.sign({
+        id: userId.rows[0],
+        name: name.rows[0],
+        email,
+        admin: admin.rows[0],
+      }, process.env.JWT_SECRET_KEY, { expiresIn: '6h' });
+
+      return res.header('x-auth-token', token).status(201).json({
         status: 201,
         message: 'user was successfully created',
         data: rows,
@@ -36,7 +51,7 @@ class User {
     } catch (err) {
       return res.status(500).json({
         status: 500,
-        error: 'error occured while creating user, please try again later',
+        error: 'an error occured while creating user, please try again later',
       });
     }
   }
@@ -67,8 +82,18 @@ class User {
       });
     }
     rows = await db.query('SELECT * FROM users WHERE email = $1', [email]);
+    const userId = await db.query('SELECT id FROM users WHERE email = $1', [email]);
+    const admin = await db.query('SELECT is_admin FROM users WHERE email = $1', [email]);
+    const name = await db.query('SELECT firstname ||\' \'|| lastname as name FROM users WHERE email=$1', [email]);
+
+    const token = jwt.sign({
+      id: userId.rows[0],
+      name: name.rows[0],
+      email,
+      admin: admin.rows[0],
+    }, process.env.JWT_SECRET_KEY, { expiresIn: '6h' });
     try {
-      return res.status(200).json({
+      return res.header('x-auth-token', token).status(200).json({
         status: 200,
         message: 'login successful',
         data: [rows.rows[0]],
