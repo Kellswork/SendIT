@@ -65,7 +65,7 @@ class Parcel {
         error: errorMessage,
       });
     }
-    const { rows } = await db.query('INSERT INTO parcels( placed_by, weight, weightmetric, price, pickupaddress, destinationaddress, reciever, phonenumber) VALUES($1,$2,$3,$4,$5,$6,$7, $8) RETURNING *', [req.userData.id.id, weight, weightmetric, price, pickupAddress, destinationAddress, reciever, phoneNumber]);
+    const { rows } = await db.query('INSERT INTO parcels( placed_by, weight, weightmetric, price, pickupaddress, destinationaddress, reciever, phonenumber) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *', [req.userData.id, weight, weightmetric, price, pickupAddress, destinationAddress, reciever, phoneNumber]);
 
     try {
       return res.status(201).json({
@@ -102,6 +102,53 @@ class Parcel {
         status: 200,
         data: [{
           parcels: rows,
+        }],
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: 500,
+        error: 'an error occured while processing your request',
+      });
+    }
+  }
+
+  static async cancelParcelDeliveryOrder(req, res) {
+    const { id } = req.params;
+    const { rows } = await db.query('select * from parcels where id = $1', [id]);
+    if (!rows[0]) {
+      return res.status(404).json({
+        status: 404,
+        error: 'parcel not found',
+      });
+    }
+
+    if (req.userData.id !== rows[0].placed_by) {
+      return res.status(403).json({
+        status: 403,
+        error: 'you cannot cancel a parcel delivery order you did not create.',
+      });
+    }
+    if (rows[0].status === 'cancelled') {
+      return res.status(406).json({
+        status: 406,
+        error: 'your parcel delivery order has already been cancelled.',
+      });
+    }
+    if (rows[0].status === 'delivered') {
+      return res.status(406).json({
+        status: 406,
+        error: 'you cannot cancel a parcel delivery order that has already been delivered.',
+      });
+    }
+    await db.query('UPDATE parcels SET status = $1 WHERE id = $2', ['cancelled', id]);
+    const result = await db.query('SELECT * from parcels where id=$1', [id]);
+    try {
+      res.status(200).json({
+        status: 200,
+        data: [{
+          id: result.rows[0].id,
+          message: 'your order has been cancelled',
+          status: result.rows[0].status,
         }],
       });
     } catch (err) {

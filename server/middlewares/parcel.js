@@ -8,7 +8,7 @@ const validateParcelOrder = (parcelOrder) => {
     pickupAddress: Joi.string().min(10).max(250).required(),
     destinationAddress: Joi.string().min(10).max(250).required(),
     reciever: Joi.string().required(),
-    phoneNumber: Joi.number().required(),
+    phoneNumber: Joi.string().required(),
   };
   return Joi.validate(parcelOrder, schema, { abortEarly: false });
 };
