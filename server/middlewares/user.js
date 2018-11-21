@@ -8,6 +8,7 @@ const validateUser = (user) => {
     email: Joi.string().email().max(50)
       .required(),
     password: Joi.string().alphanum().required(),
+    phonenumber: Joi.number().min(10).required(),
   };
   return Joi.validate(user, schema, { abortEarly: false });
 };

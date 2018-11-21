@@ -2,11 +2,13 @@ import Joi from 'joi';
 
 const validateParcelOrder = (parcelOrder) => {
   const schema = {
-    name: Joi.string().min(5).max(50).required(),
-    productName: Joi.string().min(5).max(250).required(),
+    weight: Joi.number().required(),
+    weightmetric: Joi.string().max(50).required(),
+    price: Joi.number().required(),
     pickupAddress: Joi.string().min(10).max(250).required(),
     destinationAddress: Joi.string().min(10).max(250).required(),
-    status: Joi.string().required(),
+    reciever: Joi.string().required(),
+    phoneNumber: Joi.number().required(),
   };
   return Joi.validate(parcelOrder, schema, { abortEarly: false });
 };

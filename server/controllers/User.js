@@ -10,7 +10,7 @@ dotenv.config();
 class User {
   static async createUser(req, res) {
     const {
-      firstname, lastname, username, email,
+      firstname, lastname, username, email, phonenumber,
     } = req.body;
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash(req.body.password, salt);
@@ -31,22 +31,24 @@ class User {
     }
 
     try {
-      const { rows } = await db.query('INSERT INTO users(firstname, lastname, email, username, password) VALUES($1,$2,$3,$4,$5) RETURNING *', [firstname, lastname, email, username, password]);
+      const { rows } = await db.query('INSERT INTO users(firstname, lastname, email, username, password, phonenumber) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [firstname, lastname, email, username, password, phonenumber]);
 
-      const userId = await db.query('SELECT id FROM users WHERE email = $1', [email]);
-      const admin = await db.query('SELECT is_admin FROM users WHERE email = $1', [email]);
+      const user = await db.query('SELECT * FROM users WHERE email = $1', [email]);
       const name = await db.query('SELECT firstname ||\' \'|| lastname as name FROM users WHERE email=$1', [email]);
       const token = jwt.sign({
-        id: userId.rows[0],
+        id: user.rows[0].id,
         name: name.rows[0],
         email,
-        admin: admin.rows[0],
+        admin: user.rows[0].is_admin,
       }, process.env.JWT_SECRET_KEY, { expiresIn: '6h' });
 
       return res.header('x-auth-token', token).status(201).json({
         status: 201,
-        message: 'user was successfully created',
-        data: rows,
+        data: [{
+          message: 'user was successfully created',
+          token,
+          user: rows[0],
+        }],
       });
     } catch (err) {
       return res.status(500).json({
@@ -82,21 +84,22 @@ class User {
       });
     }
     rows = await db.query('SELECT * FROM users WHERE email = $1', [email]);
-    const userId = await db.query('SELECT id FROM users WHERE email = $1', [email]);
-    const admin = await db.query('SELECT is_admin FROM users WHERE email = $1', [email]);
     const name = await db.query('SELECT firstname ||\' \'|| lastname as name FROM users WHERE email=$1', [email]);
 
     const token = jwt.sign({
-      id: userId.rows[0],
-      name: name.rows[0],
+      id: rows.rows[0].id,
+      name: name.rows[0].name,
       email,
-      admin: admin.rows[0],
+      admin: rows.rows[0].is_admin,
     }, process.env.JWT_SECRET_KEY, { expiresIn: '6h' });
     try {
       return res.header('x-auth-token', token).status(200).json({
         status: 200,
-        message: 'login successful',
-        data: [rows.rows[0]],
+        data: [{
+          message: 'login successful',
+          token,
+          user: rows.rows[0],
+        }],
       });
     } catch (err) {
       return res.status(500).json({

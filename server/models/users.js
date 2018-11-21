@@ -1,34 +1,51 @@
-const users = [
-  {
-    userId: 101,
-    name: 'kelechi Ogbonna',
-    email: 'kellogbonna@gmail.com',
-  },
-  {
-    userId: 102,
-    name: 'sandra eze',
-    email: 'sandraeze@gmail.com',
-  },
-  {
-    userId: 103,
-    name: 'daniel casey',
-    email: 'danielcasey@gmail.com',
-  },
-  {
-    userId: 104,
-    name: 'stanley spoon',
-    email: 'stanleyspoon@gmail.com',
-  },
-  {
-    userId: 105,
-    name: 'della tabel',
-    email: 'dellatabel@gmail.com',
-  },
-  {
-    userId: 106,
-    name: 'daffy duff',
-    email: 'daffyduff@gmail.com',
-  },
-];
+import logger from 'winston';
+import db from './db/index';
 
-export default users;
+const createUsersTable = () => {
+  const queryText = `CREATE TABLE IF NOT EXISTS
+  parcels(
+  id integer SERIAL PRIMARY KEY,
+  firstname character varying(250) NOT NULL,
+  lastname character varying(250) NOT NULL,
+  username character varying(250) NOT NULL,
+  email character varying(250) NOT NULL,
+  phonenumber interger NOT NULL,
+  password character varying(1000) NOT NULL,
+  isAdmin boolean DEFAULT false,
+  registered date DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT users_email_key UNIQUE (email)
+)`;
+
+  db.query(queryText)
+    .then((res) => {
+      logger.info(res);
+      db.end();
+    })
+    .catch((err) => {
+      logger.error(err);
+      db.end();
+    });
+};
+
+const dropUsersTable = () => {
+  const queryText = 'DROP TABLE IF EXISTS parcels';
+  db.query(queryText)
+    .then((res) => {
+      logger.info(res);
+      db.end();
+    })
+    .catch((err) => {
+      logger.error(err);
+      db.end();
+    });
+};
+
+db.on('remove', () => {
+  logger.info('client removed');
+  process.exit(0);
+});
+
+module.exports = {
+  createUsersTable,
+  dropUsersTable,
+};
