@@ -8,5 +8,5 @@ const router = new Router();
 router.get('/', auth, admin, Parcel.getAllParcelDeliveryOrders);
 router.get('/:id', auth, Parcel.getOneParcelDeliveryOrder);
 router.post('/', auth, Parcel.createParcelDeliveryOrder);
-
+router.patch('/:id/cancel', auth, Parcel.cancelParcelDeliveryOrder);
 export default router;
