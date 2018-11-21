@@ -32,7 +32,7 @@ class Parcel {
         error: 'could not find parcel delivery order',
       });
     }
-    if (req.userData.id !== rows[0].user_id || req.userData.admin === false) {
+    if (req.userData.id !== rows[0].placed_by || req.userData.admin === false) {
       return res.status(403).json({
         status: 403,
         error: 'You cannot see the details of this parcel delivery order',
@@ -73,6 +73,35 @@ class Parcel {
         data: [{
           message: 'order created',
           parcel: rows[0],
+        }],
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: 500,
+        error: 'an error occured while processing your request',
+      });
+    }
+  }
+
+  static async getUserParcelDeliveryOrders(req, res) {
+    const { rows } = await db.query('select * from parcels where placed_by = $1', [req.userData.id]);
+    if ((parseInt(req.params.id, 10) !== req.userData.id) && (!req.userData.admin)) {
+      return res.status(403).json({
+        status: 403,
+        error: 'Access denied',
+      });
+    }
+    if (rows.length < 1) {
+      return res.status(404).json({
+        status: 404,
+        error: 'You have not created any parcel delivery order',
+      });
+    }
+    try {
+      return res.status(200).json({
+        status: 200,
+        data: [{
+          parcels: rows,
         }],
       });
     } catch (err) {

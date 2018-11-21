@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import parcel from './routes/parcels';
 import auth from './routes/auth';
+import user from './routes/users';
 import logger from './config/winston';
 
 
@@ -16,6 +17,8 @@ app.use(bodyParser.json());
 
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/parcels', parcel);
+app.use('/api/v1/users', user);
+
 app.use((req, res, next) => {
   const error = new Error('Page Not Found');
   error.status = 404;
