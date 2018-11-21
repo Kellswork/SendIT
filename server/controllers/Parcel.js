@@ -1,4 +1,4 @@
-import db from '../models/db/index';
+import db from '../models/db/db';
 import validateParcelOrder from '../middlewares/parcel';
 
 class Parcel {

@@ -1,51 +1,60 @@
 import logger from 'winston';
-import db from './db/index';
+import { Pool } from 'pg';
+import config from '../config/config';
 
-const createUsersTable = () => {
-  const queryText = `CREATE TABLE IF NOT EXISTS
-  parcels(
-  id integer SERIAL PRIMARY KEY,
-  firstname character varying(250) NOT NULL,
-  lastname character varying(250) NOT NULL,
-  username character varying(250) NOT NULL,
-  email character varying(250) NOT NULL,
-  phonenumber interger NOT NULL,
-  password character varying(1000) NOT NULL,
-  isAdmin boolean DEFAULT false,
-  registered date DEFAULT CURRENT_TIMESTAMP,
-  CONSTRAINT users_email_key UNIQUE (email)
-)`;
+let pool;
 
-  db.query(queryText)
-    .then((res) => {
-      logger.info(res);
-      db.end();
-    })
-    .catch((err) => {
-      logger.error(err);
-      db.end();
-    });
-};
+if (process.env.NODE_ENV === 'development') {
+  pool = new Pool({ connectionString: config.development });
+}
 
-const dropUsersTable = () => {
-  const queryText = 'DROP TABLE IF EXISTS parcels';
-  db.query(queryText)
-    .then((res) => {
-      logger.info(res);
-      db.end();
-    })
-    .catch((err) => {
-      logger.error(err);
-      db.end();
-    });
-};
-
-db.on('remove', () => {
-  logger.info('client removed');
-  process.exit(0);
+pool.on('connect', () => {
+  logger.info('connection established');
 });
 
-module.exports = {
-  createUsersTable,
-  dropUsersTable,
+const createUsersTable = async () => {
+  const queryText = `CREATE TABLE IF NOT EXISTS user(id serial primary key, name varchar(50))`;
+
+  // try {
+  //   const res = await client.query(queryText);
+  //   client.release();
+  //   logger.info(res.rows[0]);
+  // } catch (error) {
+  //   logger.error(error.message, error.stack);
+  // }
+  await pool.query(queryText)
+    .then((res) => {
+      logger.info('users table created', res);
+      pool.end();
+    })
+    .catch((err) => {
+      logger.error('An error occured', err);
+      pool.end();
+    });
 };
+
+const dropUserTable = async () => {
+  const queryText = 'DROP TABLE IF EXISTS user';
+  await pool.query(queryText)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+      pool.end();
+    });
+  // pool.query(queryText)
+  //   .then((res) => {
+  //     logger.info(res);
+  //     pool.end();
+  //   })
+  //   .catch((err) => {
+  //     logger.error(err);
+  //     pool.end();
+  //   });
+};
+
+
+createUsersTable().then(res => console.log('table created', res));
+
+export default createUsersTable;
