@@ -9,7 +9,7 @@
     "serve": "node dist/index.js",
     "test": "nyc mocha --require @babel/register ./server/test/*.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "migration": "babel-node server/models/db/db.js"
+    "migration": "babel-node server/models/db.js"
   },
   "engines": {
     "node": "10.8.0",
