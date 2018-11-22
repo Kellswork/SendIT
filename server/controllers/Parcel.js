@@ -176,6 +176,19 @@ class Parcel {
         error: 'you cannot change the destination address of a parcel delivery order you did not create.',
       });
     }
+    if (rows[0].status === 'delivered') {
+      return res.status(400).json({
+        status: 406,
+        error: 'your order has already been delivered',
+      });
+    }
+
+    if (rows[0].status === 'cancelled') {
+      return res.status(400).json({
+        status: 406,
+        error: 'you cannot change the destination address of an order that has been cancelled',
+      });
+    }
 
     if (destinationAddress === '') {
       return res.status(400).json({
@@ -254,22 +267,33 @@ class Parcel {
     if (status === '') {
       return res.status(400).json({
         status: 400,
+        error: 'please input status details',
       });
     }
+    // const update = ['transiting', 'delivered', 'placed'];
+    // if (update[0] !== status) {
+    //   console.log( typeof update[1]);
+    //   console.log(typeof status);
+    //   return res.status(400).json({
+    //     status: 400,
+    //     error: 'status can either be delivered or transiting',
+    //   });
+    // }
 
-    if (status !== 'transiting') {
-      return res.status(400).json({
-        status: 400,
-        error: 'status can either be placed, transiting or delivered',
-      });
-    }
 
-    if (status !== 'delivered') {
-      return res.status(400).json({
-        status: 400,
-        error: 'status can either be placed, transiting or delivered',
-      });
-    }
+    // if (status !== 'transiting') {
+    //   return res.status(400).json({
+    //     status: 400,
+    //     error: 'status can either be placed, transiting or delivered',
+    //   });
+    // }
+
+    // if (status !== 'delivered') {
+    //   return res.status(400).json({
+    //     status: 400,
+    //     error: 'status can either be placed, transiting or delivered',
+    //   });
+    // }
 
     await db.query('UPDATE parcels SET status = $1 WHERE id = $2', [status, id]);
     const result = await db.query('SELECT * from parcels where id=$1', [id]);

@@ -31,7 +31,7 @@ class User {
     }
 
     try {
-      const { rows } = await db.query('INSERT INTO users(firstname, lastname, username, email, password, phone_number) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [firstname, lastname, email, username, password, phoneNumber]);
+      const { rows } = await db.query('INSERT INTO users(firstname, lastname, username, email, password, phone_number) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [firstname, lastname, username, email, password, phoneNumber]);
 
       const user = await db.query('SELECT * FROM users WHERE email = $1', [email]);
       const name = await db.query('SELECT firstname ||\' \'|| lastname as name FROM users WHERE email=$1', [email]);

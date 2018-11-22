@@ -1,4 +1,9 @@
-const { Client } = require('pg');
+import dotenv from 'dotenv';
+import config from '../config/config';
+
+const { Pool } = require('pg');
+
+dotenv.config();
 
 class Database {
   constructor() {
@@ -32,8 +37,8 @@ class Database {
 
   connect() {
     if (!Database.instance) {
-      const connectionString = process.env.DATABASE_URL || 'postgresql://kells:kells123@localhost:5432/sendit';
-      const instance = new Client(connectionString);
+      const connectionString = (process.env.NODE_ENV === 'production' && process.env.DATABASE_URL) || config.development;
+      const instance = new Pool({ connectionString });
       instance.connect();
       // instance.query(this.createUserTableQuery);
       // instance.query(this.createParcelTableQuery);
@@ -47,11 +52,11 @@ class Database {
   }
 
   dropUsers() {
-    this.query('DROP TABLE users CASCADE');
+    this.query('DROP TABLE IF EXISTS users CASCADE');
   }
 
   dropParcels() {
-    this.query('DROP TABLE parcels');
+    this.query('DROP TABLE IF EXISTS parcels');
   }
 }
 
