@@ -202,5 +202,42 @@ class Parcel {
       });
     }
   }
+
+  static async updateParcelCurrentLocation(req, res) {
+    const { id } = req.params;
+    const { currentLocation } = req.body;
+    const { rows } = await db.query('select * from parcels where id = $1', [id]);
+    if (!rows[0]) {
+      return res.status(404).json({
+        status: 404,
+        error: 'parcel not found',
+      });
+    }
+
+    if (currentLocation === '') {
+      return res.status(400).json({
+        status: 400,
+        error: 'please input current location address',
+      });
+    }
+
+    await db.query('UPDATE parcels SET current_location = $1 WHERE id = $2', [currentLocation, id]);
+    const result = await db.query('SELECT * from parcels where id=$1', [id]);
+    try {
+      res.status(200).json({
+        status: 200,
+        data: [{
+          id: result.rows[0].id,
+          message: 'parcel delivery order current location has been updated',
+          destinationAddress: result.rows[0].currentLocation,
+        }],
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: 500,
+        error: 'an error occured while processing your request',
+      });
+    }
+  }
 }
 export default Parcel;
