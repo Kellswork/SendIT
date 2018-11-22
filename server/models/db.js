@@ -2,7 +2,8 @@ const { Client } = require('pg');
 
 class Database {
   constructor() {
-    this.createUserTableQuery = `CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, 
+    this.createUserTableQuery = `CREATE TABLE IF NOT EXISTS users(
+    id SERIAL PRIMARY KEY, 
     firstname VARCHAR(50) NOT NULL, 
     lastname VARCHAR(50) NOT NULL,
     username VARCHAR(50) NOT NULL,
@@ -33,7 +34,8 @@ class Database {
   connect() {
     if (!Database.instance) {
       const connectionString = process.env.DATABASE_URL || 'postgresql://kells:kells123@localhost:5432/sendit';
-      const instance = new Client(connectionString);
+      const instance = new Client({ connectionString });
+      // console.log(instance);
       instance.connect();
       // instance.query(this.createUserTableQuery);
       // instance.query(this.createParcelTableQuery);
@@ -58,5 +60,4 @@ class Database {
 
 // test();
 const db = new Database();
-
-export default db;
+module.exports = db;
