@@ -2,7 +2,7 @@ const { Client } = require('pg');
 
 class Database {
   constructor() {
-    this.createUseTableQuery = `CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, 
+    this.createUserTableQuery = `CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY, 
     firstname VARCHAR(50) NOT NULL, 
     lastname VARCHAR(50) NOT NULL,
     username VARCHAR(50) NOT NULL,
@@ -35,30 +35,28 @@ class Database {
       const connectionString = process.env.DATABASE_URL || 'postgresql://kells:kells123@localhost:5432/sendit';
       const instance = new Client(connectionString);
       instance.connect();
-      instance.query(this.createUseTableQuery);
-      instance.query(this.createParcelTableQuery);
-      Database.instance = instance;
+      // instance.query(this.createUserTableQuery);
+      // instance.query(this.createParcelTableQuery);
+      Database.instance = instance;//
     }
   }
 
-  query(query) {
-    return Database.instance.query(query);
+  async query(query) {
+    const result = await Database.instance.query(query);
+    return result;
   }
 
   dropUsers() {
-    Database.instance.query('DROP TABLE users CASCADE');
+    this.query('DROP TABLE users CASCADE');
   }
 
   dropParcels() {
-    Database.instance.query('DROP TABLE parcels');
+    this.query('DROP TABLE parcels');
   }
 }
 
 
 // test();
 const db = new Database();
-// db.dropUsers();
-// db.dropParcels();
-
 
 export default db;
