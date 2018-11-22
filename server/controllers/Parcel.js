@@ -239,5 +239,55 @@ class Parcel {
       });
     }
   }
+
+  static async updateParcelDeliveryOrderStatus(req, res) {
+    const { id } = req.params;
+    const { status } = req.body;
+    const { rows } = await db.query('select * from parcels where id = $1', [id]);
+    if (!rows[0]) {
+      return res.status(404).json({
+        status: 404,
+        error: 'parcel not found',
+      });
+    }
+
+    if (status === '') {
+      return res.status(400).json({
+        status: 400,
+      });
+    }
+
+    if (status !== 'transiting') {
+      return res.status(400).json({
+        status: 400,
+        error: 'status can either be placed, transiting or delivered',
+      });
+    }
+
+    if (status !== 'delivered') {
+      return res.status(400).json({
+        status: 400,
+        error: 'status can either be placed, transiting or delivered',
+      });
+    }
+
+    await db.query('UPDATE parcels SET status = $1 WHERE id = $2', [status, id]);
+    const result = await db.query('SELECT * from parcels where id=$1', [id]);
+    try {
+      res.status(200).json({
+        status: 200,
+        data: [{
+          id: result.rows[0].id,
+          message: 'parcel delivery order has been updated',
+          status: result.rows[0].status,
+        }],
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: 500,
+        error: 'an error occured while processing your request',
+      });
+    }
+  }
 }
 export default Parcel;
