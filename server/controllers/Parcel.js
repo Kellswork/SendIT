@@ -257,10 +257,17 @@ class Parcel {
       });
     }
 
-    if (!status === 'transiting') {
+    if (status !== 'transiting') {
       return res.status(400).json({
         status: 400,
-        error: 'status can either be transiting or delivered',
+        error: 'status can either be placed, transiting or delivered',
+      });
+    }
+
+    if (status !== 'delivered') {
+      return res.status(400).json({
+        status: 400,
+        error: 'status can either be placed, transiting or delivered',
       });
     }
 
