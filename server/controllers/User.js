@@ -40,7 +40,7 @@ class User {
     try {
       const query = {
         text: `INSERT INTO users(firstname, lastname, username, email, password, phone_number,is_admin)
-       VALUES($1,$2,$3,$4,$5,$6) RETURNING *`,
+       VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
         values: [firstname,
           lastname, username, email, password, phoneNumber, isAdmin
         ],
