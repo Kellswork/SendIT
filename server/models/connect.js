@@ -1,4 +1,4 @@
- import { Pool } from 'pg';
+/* import { Pool } from 'pg';
 import logger from 'winston';
 //import config from '../config/config';
 
@@ -8,7 +8,7 @@ let pool;
 
  // pool.coonect();
 //}
-/*
+
 else if (process.env.NODE_ENV === 'development') {
   pool = new Pool({ connectionString: config.development });
 }
@@ -16,13 +16,13 @@ else if (process.env.NODE_ENV === 'development') {
 else if (process.env.NODE_ENV === 'test') {
   pool = new Pool({ connectionString: config.test });
 }
-*/
+
 //logger.info(`${process.env.NODE_ENV}`);
 //process.env.NODE_ENV
 pool = new Pool(process.env.DATABASE_URL);
-/*
+
 pool.connect().then(() => logger.info('connected to db')).catch(() => logger.error('Not connected to db...'));
-*/
+
 
 
 const db = {
@@ -32,7 +32,7 @@ const db = {
 export default db;
 
 
-/*
+*/
 const { Client } = require('pg');
 
 class Database {
@@ -70,10 +70,10 @@ class Database {
     if (!Database.instance) {
       const connectionString = process.env.DATABASE_URL || 'postgresql://kells:kells123@localhost:5432/sendit';
       const instance = new Client({ connectionString });
-      // console.log(instance);
+       console.log(instance);
       instance.connect();
-      // instance.query(this.createUserTableQuery);
-      // instance.query(this.createParcelTableQuery);
+       instance.query(this.createUserTableQuery);
+       instance.query(this.createParcelTableQuery);
       Database.instance = instance;//
     }
   }
@@ -96,4 +96,3 @@ class Database {
 // // test();
 const db = new Database();
  export default db;
-*/
