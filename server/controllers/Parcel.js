@@ -1,4 +1,4 @@
-import db from '../models/db/index';
+import db from '../models/db';
 import validateParcelOrder from '../middlewares/parcel';
 
 class Parcel {
@@ -65,7 +65,7 @@ class Parcel {
         error: errorMessage,
       });
     }
-    const { rows } = await db.query('INSERT INTO parcels( placed_by, weight, weightmetric, price, pickupaddress, destinationaddress, reciever, phonenumber) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *', [req.userData.id, weight, weightmetric, price, pickupAddress, destinationAddress, reciever, phoneNumber]);
+    const { rows } = await db.query('INSERT INTO parcels( placed_by, weight, weightmetric, price, pickup_address, destination_address, reciever, phone_number) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *', [req.userData.id, weight, weightmetric, price, pickupAddress, destinationAddress, reciever, phoneNumber]);
 
     try {
       return res.status(201).json({
@@ -148,7 +148,7 @@ class Parcel {
         data: [{
           id: result.rows[0].id,
           message: 'your order has been cancelled',
-          status: result.rows[0].status,
+          status: result.rows[0],
         }],
       });
     } catch (err) {

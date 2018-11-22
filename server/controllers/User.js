@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import validateUser from '../middlewares/user';
-import db from '../models/db/index';
+import db from '../models/db';
 import validateUserLogin from '../middlewares/login';
 
 dotenv.config();
@@ -10,7 +10,7 @@ dotenv.config();
 class User {
   static async createUser(req, res) {
     const {
-      firstname, lastname, username, email, phonenumber,
+      firstname, lastname, username, email, phoneNumber,
     } = req.body;
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash(req.body.password, salt);
@@ -31,7 +31,7 @@ class User {
     }
 
     try {
-      const { rows } = await db.query('INSERT INTO users(firstname, lastname, email, username, password, phonenumber) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [firstname, lastname, email, username, password, phonenumber]);
+      const { rows } = await db.query('INSERT INTO users(firstname, lastname, username, email, password, phone_number) VALUES($1,$2,$3,$4,$5,$6) RETURNING *', [firstname, lastname, email, username, password, phoneNumber]);
 
       const user = await db.query('SELECT * FROM users WHERE email = $1', [email]);
       const name = await db.query('SELECT firstname ||\' \'|| lastname as name FROM users WHERE email=$1', [email]);
