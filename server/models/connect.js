@@ -1,13 +1,14 @@
  import { Pool } from 'pg';
 import logger from 'winston';
-import config from '../config/config';
+//import config from '../config/config';
 
 let pool;
 
-if (process.env.DATABASE_URL) {
-  pool = new Pool(process.env.DATABASE_URL);
+//if (process.env.DATABASE_URL) {
+
  // pool.coonect();
-}
+//}
+/*
 else if (process.env.NODE_ENV === 'development') {
   pool = new Pool({ connectionString: config.development });
 }
@@ -15,8 +16,14 @@ else if (process.env.NODE_ENV === 'development') {
 else if (process.env.NODE_ENV === 'test') {
   pool = new Pool({ connectionString: config.test });
 }
-logger.info(`${process.env.NODE_ENV}`);
+*/
+//logger.info(`${process.env.NODE_ENV}`);
+//process.env.NODE_ENV
+pool = new Pool(process.env.DATABASE_URL);
+/*
 pool.connect().then(() => logger.info('connected to db')).catch(() => logger.error('Not connected to db...'));
+*/
+
 
 const db = {
   query: (text, params) => pool.query(text, params),
