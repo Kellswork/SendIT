@@ -158,5 +158,49 @@ class Parcel {
       });
     }
   }
+
+  static async updateParcelDestinationAddress(req, res) {
+    const { id } = req.params;
+    const { destinationAddress } = req.body;
+    const { rows } = await db.query('select * from parcels where id = $1', [id]);
+    if (!rows[0]) {
+      return res.status(404).json({
+        status: 404,
+        error: 'parcel not found',
+      });
+    }
+
+    if (req.userData.id !== rows[0].placed_by) {
+      return res.status(403).json({
+        status: 403,
+        error: 'you cannot change the destination address of a parcel delivery order you did not create.',
+      });
+    }
+
+    if (destinationAddress === '') {
+      return res.status(400).json({
+        status: 400,
+        error: 'please input destination address',
+      });
+    }
+
+    await db.query('UPDATE parcels SET destination_address = $1 WHERE id = $2', [destinationAddress, id]);
+    const result = await db.query('SELECT * from parcels where id=$1', [id]);
+    try {
+      res.status(200).json({
+        status: 200,
+        data: [{
+          id: result.rows[0].id,
+          message: 'parcel delivery order destination address has been updated',
+          destinationAddress: result.rows[0].destinationAddress,
+        }],
+      });
+    } catch (err) {
+      return res.status(500).json({
+        status: 500,
+        error: 'an error occured while processing your request',
+      });
+    }
+  }
 }
 export default Parcel;
