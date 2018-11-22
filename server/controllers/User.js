@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import validateUser from '../middlewares/user';
-import db from '../models/db';
+import db from '../models/connect';
 import validateUserLogin from '../middlewares/login';
 
 dotenv.config();

@@ -4,7 +4,6 @@ import parcel from './routes/parcels';
 import auth from './routes/auth';
 import user from './routes/users';
 import logger from './config/winston';
-import db from './models/db';
 
 
 const app = express();
