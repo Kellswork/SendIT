@@ -15,6 +15,7 @@ class User {
       username,
       email,
       phoneNumber,
+      isAdmin
     } = req.body;
     const salt = await bcrypt.genSalt(10);
     const password = await bcrypt.hash(req.body.password, salt);
@@ -38,10 +39,10 @@ class User {
 
     try {
       const query = {
-        text: `INSERT INTO users(firstname, lastname, username, email, password, phone_number)
+        text: `INSERT INTO users(firstname, lastname, username, email, password, phone_number,is_admin)
        VALUES($1,$2,$3,$4,$5,$6) RETURNING *`,
         values: [firstname,
-          lastname, username, email, password, phoneNumber,
+          lastname, username, email, password, phoneNumber, isAdmin
         ],
       };
       const rows = await db.query(query);

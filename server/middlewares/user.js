@@ -9,6 +9,7 @@ const validateUser = (user) => {
       .required(),
     password: Joi.string().alphanum().required(),
     phoneNumber: Joi.string().min(10).required(),
+    isAdmin: Joi.boolean(),
   };
   return Joi.validate(user, schema, { abortEarly: false });
 };
