@@ -9,5 +9,6 @@ router.get('/', auth, admin, Parcel.getAllParcelDeliveryOrders);
 router.get('/:id', auth, Parcel.getOneParcelDeliveryOrder);
 router.post('/', auth, Parcel.createParcelDeliveryOrder);
 router.patch('/:id/cancel', auth, Parcel.cancelParcelDeliveryOrder);
-router.patch('/:id/destination', auth, admin, Parcel.updateParcelDestinationAddress);
+router.patch('/:id/destination', auth, Parcel.updateParcelDestinationAddress);
+router.patch('/:id/currentlocation', auth, admin, Parcel.updateParcelCurrentLocation);
 export default router;
