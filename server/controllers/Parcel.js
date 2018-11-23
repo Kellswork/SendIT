@@ -205,7 +205,7 @@ class Parcel {
         data: [{
           id: result.rows[0].id,
           message: 'parcel delivery order destination address has been updated',
-          destinationAddress: result.rows[0].destinationAddress,
+          destinationAddress: result.rows[0],
         }],
       });
     } catch (err) {
@@ -242,7 +242,7 @@ class Parcel {
         data: [{
           id: result.rows[0].id,
           message: 'parcel delivery order current location has been updated',
-          destinationAddress: result.rows[0].currentLocation,
+          destinationAddress: result.rows[0],
         }],
       });
     } catch (err) {
@@ -303,7 +303,7 @@ class Parcel {
         data: [{
           id: result.rows[0].id,
           message: 'parcel delivery order has been updated',
-          status: result.rows[0].status,
+          status: result.rows[0],
         }],
       });
     } catch (err) {

@@ -1,23 +1,26 @@
 /* eslint-env node, mocha */
 import { expect } from 'chai';
 import supertest from 'supertest';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 import server from '../index';
 
 const api = supertest(server);
 
+dotenv.config();
 
-describe('Get all users', () => {
+const token = process.env.token;
+
+
+describe('sign in a user', () => {
   it('should return all users created', (done) => {
-    api.get('/api/v1/users')
-      .set('Content-Type', 'application/json')
+    api.post('/api/v1/auth/login')
+      .set('Authorization', `Bearer${token}`)
       .send()
       .expect(200)
       .end((err, res) => {
+        console.log(res.body)
         expect(res.status).to.equal(200);
-        expect(res.body).to.have.property('success');
-        expect(res.body).to.have.property('details');
-        expect(res.body.success).to.equal(true);
-        expect(res.body.details).to.be.a('array');
         done();
       });
   });
