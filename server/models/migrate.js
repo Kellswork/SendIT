@@ -1,43 +1,41 @@
-import bcrypt from 'bcrypt';
 import db from './db';
 
-const seedTables = async () => {
-  const salt = await bcrypt.genSalt(10);
-  let password = await bcrypt.hash('12345', salt);
-  let queryText = `INSERT INTO users 
-    ("firstname", "lastname", "username", "email", "password", "phone_number")
-     VALUES
-    ('kelechi','ogbonna','kellswork','kells@gmail.com','${password}','08035085824'
-    );`;
-  password = await bcrypt.hash('12345', salt);
-  queryText += `INSERT INTO users 
-    ("firstname", "lastname", "username", "email", "password", "phone_number")
-     VALUES
-    ('mary','ngozi','maryam','mary@gmail.com','${password}','08035085824'
-    );`;
+const tableQuery = async () => {
+  const dropUserTable = await db.query('DROP TABLE IF EXISTS users, parcels CASCADE');
 
-  password = await bcrypt.hash('12345', salt);
-  queryText += `INSERT INTO users 
-    ("firstname", "lastname", "username", "email", "password", "phone_number", "is_admin")
-     VALUES
-    ('stella','mauada','stellb','stella@gmail.com','${password}','08035085824', true
-    );`;
-  // queryText = `INSERT INTO parcels
-  //   ( placed_by, weight, weightmetric, price, pickup_address,
-  //      destination_address, reciever, phone_number)
-  //   VALUES(20, 'kg','20000','No 3 douglas road oshi lagos',
-  // 'No 20 fidelia street off illupeju lagos','johson', '07036342277');`;
-  // const result =
-  await db.query(queryText);
-  // (result);
+  const dropParcelTable = await db.query('DROP TABLE IF EXISTS parcels;');
+
+  const UserTable = await db.query(`CREATE TABLE IF NOT EXISTS users(
+    id SERIAL PRIMARY KEY, 
+    firstname VARCHAR(50) NOT NULL, 
+    lastname VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    phone_number TEXT NOT NULL,
+    is_admin BOOLEAN DEFAULT FALSE,
+    registered_on DATE DEFAULT CURRENT_TIMESTAMP);`);
+
+
+  const parcelTable = await db.query(`CREATE TABLE IF NOT EXISTS 
+    parcels(id SERIAL PRIMARY KEY, 
+    placed_by INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    weight NUMERIC NOT NULL,
+    weightmetric VARCHAR(5) NOT NULL,
+    price NUMERIC NOT NULL,
+    pickup_address TEXT NOT NULL,
+    destination_address TEXT NOT NULL,
+    reciever VARCHAR(50) NOT NULL,
+    phone_number TEXT NOT NULL,
+    sent_on DATE DEFAULT CURRENT_TIMESTAMP,
+    delivered_on DATE,
+    status VARCHAR(20) DEFAULT 'placed',
+    current_location TEXT);`);
+
+  console.log(dropUserTable,
+    dropParcelTable,
+    UserTable,
+    parcelTable);
 };
 
-const migrate = async () => {
-  await db.dropParcels();
-  await db.dropUsers();
-  await db.query(db.createUserTableQuery);
-  await db.query(db.createParcelTableQuery);
-  seedTables();
-};
-
-migrate();
+tableQuery();
