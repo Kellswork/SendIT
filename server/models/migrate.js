@@ -1,11 +1,12 @@
 import db from './db';
 
 const tableQuery = async () => {
-  const dropUserTable = await db.query('DROP TABLE IF EXISTS users, parcels CASCADE');
+  try {
+    const dropUserTable = await db.query('DROP TABLE IF EXISTS users, parcels CASCADE');
 
-  const dropParcelTable = await db.query('DROP TABLE IF EXISTS parcels;');
+    const dropParcelTable = await db.query('DROP TABLE IF EXISTS parcels;');
 
-  const UserTable = await db.query(`CREATE TABLE IF NOT EXISTS users(
+    const UserTable = await db.query(`CREATE TABLE IF NOT EXISTS users(
     id SERIAL PRIMARY KEY, 
     firstname VARCHAR(50) NOT NULL, 
     lastname VARCHAR(50) NOT NULL,
@@ -17,7 +18,7 @@ const tableQuery = async () => {
     registered_on DATE DEFAULT CURRENT_TIMESTAMP);`);
 
 
-  const parcelTable = await db.query(`CREATE TABLE IF NOT EXISTS 
+    const parcelTable = await db.query(`CREATE TABLE IF NOT EXISTS 
     parcels(id SERIAL PRIMARY KEY, 
     placed_by INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     weight NUMERIC NOT NULL,
@@ -32,10 +33,14 @@ const tableQuery = async () => {
     status VARCHAR(20) DEFAULT 'placed',
     current_location TEXT);`);
 
-  console.log(dropUserTable,
-    dropParcelTable,
-    UserTable,
-    parcelTable);
+    console.log(dropUserTable,
+      dropParcelTable,
+      UserTable,
+      parcelTable);
+  } catch (err) {
+    console.log(err.name, err.message);
+    return err.message;
+  }
 };
 
 tableQuery();

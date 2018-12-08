@@ -3,5 +3,4 @@ node_js:
 - "10.8"
 - "8.12"
 after_success: npm run coverage
-services:
-- postgresql
+

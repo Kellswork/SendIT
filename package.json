@@ -6,8 +6,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node server/index.js",
     "build": "babel server --out-dir dist",
-    "serve": "node dist/index.js",
-    "test": " nyc mocha --require @babel/register ./server/test/*.js --exit",
+    "test": " nyc mocha --require @babel/register ./server/test/*.js --exit --5000",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "migration": "babel-node server/models/migrate.js"
   },
