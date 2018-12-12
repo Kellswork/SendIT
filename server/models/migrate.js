@@ -8,30 +8,30 @@ const tableQuery = async () => {
 
     const UserTable = await db.query(`CREATE TABLE IF NOT EXISTS users(
     id SERIAL PRIMARY KEY, 
-    firstname VARCHAR(50) NOT NULL, 
-    lastname VARCHAR(50) NOT NULL,
-    username VARCHAR(50) NOT NULL,
+    firstName VARCHAR(50) NOT NULL, 
+    lastName VARCHAR(50) NOT NULL,
+    userName VARCHAR(50) NOT NULL,
     email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
-    phone_number TEXT NOT NULL,
-    is_admin BOOLEAN DEFAULT FALSE,
-    registered_on DATE DEFAULT CURRENT_TIMESTAMP);`);
+    phoneNumber TEXT NOT NULL,
+    isAdmin BOOLEAN DEFAULT FALSE,
+    registeredOn DATE DEFAULT CURRENT_TIMESTAMP);`);
 
 
     const parcelTable = await db.query(`CREATE TABLE IF NOT EXISTS 
     parcels(id SERIAL PRIMARY KEY, 
-    placed_by INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    placedBy INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     weight NUMERIC NOT NULL,
-    weightmetric VARCHAR(5) NOT NULL,
+    weightMetric VARCHAR(5) NOT NULL,
     price NUMERIC NOT NULL,
-    pickup_address TEXT NOT NULL,
-    destination_address TEXT NOT NULL,
+    pickupAddress TEXT NOT NULL,
+    destinationAddress TEXT NOT NULL,
     reciever VARCHAR(50) NOT NULL,
-    phone_number TEXT NOT NULL,
-    sent_on DATE DEFAULT CURRENT_TIMESTAMP,
-    delivered_on DATE,
+    phoneNumber TEXT NOT NULL,
+    sentOn DATE DEFAULT CURRENT_TIMESTAMP,
+    deliveredOn DATE,
     status VARCHAR(20) DEFAULT 'placed',
-    current_location TEXT);`);
+    currentLocation TEXT);`);
 
     console.log(dropUserTable,
       dropParcelTable,
