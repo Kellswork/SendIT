@@ -4,8 +4,10 @@
   "description": "SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight catergories.",
   "main": "index.js",
   "scripts": {
+    "heroku": "npm run build && node dist/index.js",
     "start": "nodemon --exec babel-node server/index.js",
-    "build": "babel server --out-dir dist",
+    "build": "babel server/ -d dist",
+    "host": "npm run build && node dist/index.js",
     "test": " babel-node server/models/migrate.js && NODE_ENV='test' nyc mocha --require @babel/register ./server/test/*.js --exit --5000",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "migration": "babel-node -- ./server/models/migrate"
@@ -28,7 +30,7 @@
   },
   "homepage": "https://github.com/Kellswork/SendIT#readme",
   "dependencies": {
-    "app-root-path": "^2.1.0",
+    "babel-polyfill": "^6.26.0",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
