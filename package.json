@@ -4,7 +4,8 @@
   "description": "SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight catergories.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node server/index.js",
+    "start": "npm run build && node dist/index.js",
+    "start:dev": "nodemon --exec babel-node server/index.js",
     "clean": "rm -rf dist && mkdir dist",
     "build": "babel server/ -d dist",
     "host": "npm run build && node dist/index.js", 
