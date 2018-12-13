@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node server/index.js",
-    "serve": "node dist/index.js",
     "build": "babel server --out-dir dist",
-    "start-heroku": "npm run build && npm run serve",
+    "start-heroku": "npm run build && node ./dist/index.js",
     "test": " babel-node server/models/migrate.js && NODE_ENV='test' nyc mocha --require @babel/register ./server/test/*.js --exit --5000",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "migration": "babel-node -- ./server/models/migrate"
@@ -45,6 +44,7 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.5",
     "@babel/node": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
     "@babel/register": "^7.0.0",
     "chai": "^4.2.0",
