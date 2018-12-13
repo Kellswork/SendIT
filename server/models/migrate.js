@@ -19,7 +19,8 @@ const tableQuery = async () => {
 
 
     const parcelTable = await db.query(`CREATE TABLE IF NOT EXISTS 
-    parcels(id SERIAL PRIMARY KEY, 
+    parcels(id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
     placedBy INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     weight NUMERIC NOT NULL,
     weightMetric VARCHAR(5) NOT NULL,
@@ -33,13 +34,16 @@ const tableQuery = async () => {
     status VARCHAR(20) DEFAULT 'placed',
     currentLocation TEXT);`);
 
+    const admin = await db.query('INSERT into users(firstName, lastName, userName, email, password, phoneNumber, isAdmin) VALUES(\'admin\',\' admin\', \'admin\', \'admin@sendit.com\', \'admin\', \'07036328870\', \'true\');');
+
+    const user = await db.query('INSERT into users( firstName, lastName, userName, email, password, phoneNumber, isAdmin) VALUES(\'kell\',\'leo\', \'kellsbaby\', \'kells@gmail.com\', \'12345\', \'07036328870\', \'false\');');
+
     console.log(dropUserTable,
-      dropParcelTable,
-      UserTable,
-      parcelTable);
+      dropParcelTable, UserTable,
+      parcelTable, admin, user);
   } catch (err) {
     console.log(err.name, err.message);
-    return err.message;
+    return err.stack;
   }
 };
 

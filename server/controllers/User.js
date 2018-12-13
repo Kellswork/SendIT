@@ -59,10 +59,13 @@ class User {
     try {
       return res.header('x-auth-token', token).status(200).json({
         success: true,
-        data: {
-          message: 'login successful',
-          token,
-          user: rows.rows[0],
+        message: 'login successful',
+        token,
+        user: {
+          id: rows.rows[0].id,
+          username: rows.rows[0].username,
+          email,
+          admin: rows.rows[0].isadmin,
         },
       });
     } catch (err) {
