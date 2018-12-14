@@ -1,5 +1,4 @@
 import { Pool } from 'pg';
-import logger from 'winston';
 import dotenv from 'dotenv';
 
 dotenv.load();
@@ -14,7 +13,6 @@ if (process.env.NODE_ENV === 'test') {
   });
 }
 
-pool.connect().then(() => logger.info('connected to db')).catch(err => logger.error(`not connected ${err.message}`));
 console.log(process.env.NODE_ENV);
 const db = {
   query: (text, params) => pool.query(text, params),
