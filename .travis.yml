@@ -9,7 +9,6 @@ dist: trusty
 services:
 -postgresql
 before_script:
--psql -c"create user kells with password kells60;" -U postgres
 -psql -c "create database sendit_test;" -U postgres
 -npm install
 script:
