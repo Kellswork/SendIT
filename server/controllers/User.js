@@ -26,6 +26,7 @@ class User {
       const name = await db.query(fullName, [email]);
       const token = generateToken(user, name, email);
       return res.header('x-auth-token', token).status(201).json({
+        success: true,
         status: 201,
         data: {
           message: 'user was successfully created',
