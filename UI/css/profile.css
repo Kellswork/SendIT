@@ -19,20 +19,28 @@
 .account-info {
   display: flex;
   min-height: 100%;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  border: 1px solid #C8C8C8;
   box-sizing: border-box;
+  justify-content: space-around; 
+  padding-left: 10px;
+  padding-right: 10px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  
 }
 .account-delivered {
-  width: 50%;
-  text-align: center;
-  border-right: 1px solid #C8C8C8;
+  margin-right: 20px;
 }
-
-.account-in-transit {
-  width: 50%;
-  text-align: center;
+.account-delivered p,.account-in-transit p {
+  font-size: 20px;
+}
+.account-delivered, .account-in-transit {
+  text-align: center;  
+  height: 92px;
+  width: 260px;
+  border-radius: 10px;
+  box-shadow: 1px 4px 7px 0px #003468;
 }
 .account-delivered, .account-in-transit {
   padding-top: 10px;
@@ -48,6 +56,9 @@
   margin: 0 auto;
   padding-top: 20px;
 }
+.account-details h3 {
+  padding: 0px 50px;
+}
 .account-data {
   box-sizing: border-box;
   padding: 0px 50px;
@@ -61,20 +72,26 @@
   padding-left: 5px;
 }
 .orders {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   padding-top: 20px;
 }
+.orders h3 {
+  width: 80%;
+  margin: 0 auto;
+}
 .account-order-details {
-  width: 100%;
+  width: 80%;
   text-align: left;
-  padding: 0px 40px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 0px 1px #3a3f4421, 0px 0px 0px 1px #3a3f441f, 1px 2px 1px 1px #ffffff08;
 }
 table {
   border-spacing: 0px;
 }
-tr:nth-child(even){
-  background: rgb(223, 219, 219);
+tbody {
+  text-align:left;
+  width: 100%;
 }
 
 hr {
@@ -95,8 +112,16 @@ hr {
 }
 .account-order-details {
   padding: 0px;
+  width: 95%;
 }
 .pagination a {
   font-size: 15px;
+}
+.profile {
+padding: 0;
+width: 15%;
+}
+.account-container {
+  width: 95%;
 }
 }
