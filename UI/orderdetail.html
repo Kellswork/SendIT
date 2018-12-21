@@ -12,47 +12,61 @@
 </head>
 
 <body>
-  <div class="order-container">
+  <div class="order-details-container">
     <header>
-      <h1 class='logo'>
+      <h1 class='logo' onclick="window.location.href='index.html'" >
         Send<span>IT</span>
       </h1>
-      <div class="profile">
-        <div class="profile-img">
-          <img src="img/avatar-2.jpg" alt="image placeholder">
-          <div class="dropdown-content">
-            <a href="profile.html">Profile</a>
-            <a href="order.html">Orders</a>
-            <a href="login.html">Logout</a>
-          </div>
-        </div>
-        <a href="index.html"><i class="fas fa-home"></i></a>
-        <i class="fas fa-bell"></i>
-      </div>
-    </header>
-
-    <section class="box-one">
-      <div class="create-order">
-        <a href="createorder.html" class="create-order-button">Click To Create New Order</a>
-      </div>
-
       <div class="search-container">
         <form action="/action_page.php">
           <input class='search-input' type="text" placeholder="Search..." name="search">
           <button type="submit"><i class="fa fa-search"></i>
         </form>
       </div>
-    </section>
-
-    <section class="content">
       <div class="notification">
-        <h3>Notifications</h3>
-        <p> Your order #22776 has left our warehouse</p>
-        <p>Your order #23455 has been delivered</p>
-        <p>Your order #23455 has been delivered</p>
-        <p>Your order #23455 has been delivered</p>
+        <div class="icon">
+          <i "javascript:void(0);" onclick="openNotification()" class="fas fa-bell"></i>
+          <div class="dropdown-notification">
+            <h3>4 New Notifications</h3>
+            <ul>
+              <li> your order #22776 has left our warehouse</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+            </ul>
+          </div>
+        </div>
       </div>
+      <div class="profile">
+        <div class="profile-img">
+         <img src="img/avatar-2.jpg" alt="image placeholder"> 
+          <div class="dropdown-content">
+            <a href="createorder.html">New Order</a>
+            <a href="profile.html">Profile</a>
+            <a href="order.html">Orders</a>
+            <a href="login.html">Logout</a>
+          </div>
+        </div>
+
+      </div>
+    </header>
+    <div class="mobile-nav">
+        <div class="mobile-search">
+            <form action="/action_page.php">
+              <input class='search-input' type="text" placeholder="Search..." name="search">
+              <button type="submit"><i class="fa fa-search"></i>
+            </form>
+          </div>
+          <div class="mobile-link">
+              <a href="createorder.html">New Order</a>
+              <a href="profile.html">Profile</a>
+              <a href="order.html">Orders</a>
+              <a href="login.html">Logout</a>
+          </div>
+    </div>
+    <section class="content">
       <div class="order-details">
+        <h2>Order Details</h2>
         <div class="one-order-detail">
          <div class="product-info">
             <h3>Product Name</h3>
@@ -67,9 +81,19 @@
               <h3>Destination Address</h3> 
               <p>Kelechi Ogbonna</p>
               <p> No 2 chief estate, woji, lagos     
-                <span            class="destination-info-change">Chang e</span>
+                <span class="destination-info-change">Change Address</span>
+                <div class="modal">
+                    <form action="/" class='modal-content'>
+                        <span class="close">&times;</span>
+                        <input type="text" placeholder="Enter New Address">
+                        <input type="text" placeholder="LGA">
+                        <button class="modal-btn">confirm</button>
+                    </form>
+                </div>
               </p>
               <p>07032228321</p>
+             
+              
           </div>
         <div class="payment-info">
             <h3>Payment Method</h3>
@@ -79,19 +103,23 @@
             <h3>Status</h3>
             <p>In transit</p>
         </div>
+        <div class="present-location">
+          <h3>Present Location</h3>
+          <p>Badagary</p>
+      </div>
          <button class="cancel-order">
            Cancel Order
          </button>
        </div>
     </section>
-    <footer class='account-footer'>
-      <p>copyright &copy;Andela boot-camp project 2018</p>
+    <footer class='order-details-footer'>
+      <p>copyright &copy; 2018 Andela boot-camp project</p>
     </footer>
   </div>
   </div>
 
   <div>
-
+<script src="js/script.js"></script>
 </body>
 
 </html>

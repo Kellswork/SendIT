@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #f8f8f9;
+  background: #ffffffb8;
 }
 
 h1,
@@ -59,16 +59,18 @@ header {
 }
 
 .logo {
-  width: 30%;
+  width: 50%;
+  padding-left: 5%;
   font-size: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   color: #ffc20e;
 }
 .logo a {
   text-decoration: none;
   font-size: 2.7rem;
   color: #ffc20e;
+  cursor: pointer;
 }
 
 .logo::before {
@@ -89,7 +91,7 @@ header {
   display: flex;
   list-style: none;
   justify-content: space-evenly;
-  width: 70%;
+  width: 50%;
 }
 
 .desktop-nav a {
@@ -282,11 +284,7 @@ button {
 .box-two {
   padding-top: 3%;
   margin-top: 10px;
-  background: #fdfdfd;
-  box-shadow: 0px 0px 0px 1px #3a3f4421,
-              0px 0px 0px 1px #3a3f441f, 
-              1px 2px 1px 1px #ffffff08;
-
+  background: #ffffffb8;
 }
 
 .box-two h2 {
@@ -304,11 +302,15 @@ button {
   margin: 0px auto;
   justify-content: space-around;
   text-align: center;
-  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .section-2 {
   width: 30%;
+}
+.section-2 a {
+  text-decoration: none;
+  color: #003468;
 }
 
 .section-2 .fas {
@@ -349,15 +351,24 @@ i.fas.fa-box-open:hover::after, i.fas.fa-shopping-bag:hover::after, i.fas.fa-sig
   margin-bottom: 40px;
 }
 
+.box-two hr {
+  margin: 0 auto;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  border-top: 1px solid #00000014;
+  width: 84%;
+ 
+}
 /* box-three service */
 .box-three {
-  margin-top: 5%;
-  border-bottom: 1px solid grey;
   background: #ffffffb8;
-  box-shadow: 0px 0px 0px 1px #3a3f4421,
-              0px 0px 0px 1px #3a3f441f, 
-              1px 2px 1px 1px #ffffff08;
 }
+.box-three hr {
+  margin: 0 auto;
+  border-top: 1px solid #00000014;
+  width: 85%;
+}
+
 
 .box-three h2 {
   text-align: center;
@@ -365,7 +376,6 @@ i.fas.fa-box-open:hover::after, i.fas.fa-shopping-bag:hover::after, i.fas.fa-sig
   font-size: 40px;
   letter-spacing: 1px;
   color: #ffc20e;
-  padding-top: 40px;
   padding-bottom: 15px;
 }
 
@@ -387,6 +397,9 @@ i.fas.fa-box-open:hover::after, i.fas.fa-shopping-bag:hover::after, i.fas.fa-sig
   padding-bottom: 5px;
   color: #3a3f44;
   font-weight: 500;
+  font-size: 17px;
+  width: 85%;
+  margin: 0 auto;
 }
 .service-box p {
   color: #000000c9;
@@ -429,13 +442,16 @@ footer {
 
 .toggle {
   display: none;
-  padding-right: 20px;
+  margin-right: 20px;
   font-size: 25px;
   cursor: pointer;
+  text-align: center;
+  color: #ffc20e;
 }
 .toggle:hover {
-  color: yellow;
+  background: none;
 }
+
 .mobile-nav{
   color: black;
   display: none;
@@ -450,6 +466,7 @@ footer {
   text-decoration: none;
   text-align: center;
   padding-bottom: 8px;
+  border-bottom: 1px solid #ffffff2b;
 }
 .mobile-nav a:hover {
   background: #ffc20e;
@@ -483,6 +500,7 @@ header ul a {
   font-size: 1.0em;
   padding-top: 5px;
   padding-bottom: 10px;
+  text-align: center;
 }
 button {
   margin: 20px 35px 10px 35px;
