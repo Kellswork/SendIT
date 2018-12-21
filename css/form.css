@@ -76,10 +76,11 @@ header {
 }
 
 .logo {
-  width: 30%;
+  width: 50%;
   font-size: 50px;
+  padding-left: 5%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   color: #ffc20e;
   cursor: pointer;
 }
@@ -102,7 +103,7 @@ ul {
   display: flex;
   list-style: none;
   justify-content: space-evenly;
-  width: 70%;
+  width: 50%;
 }
 
 ul a {
@@ -228,7 +229,7 @@ label[for=password],
 
 .tab-content {
   margin: 0px auto;
-  width: 50%;
+  width: 740px;
   padding: 20px 0;
 
 }
@@ -437,7 +438,7 @@ input::placeholder {
 .pricing-form form {
   padding: 2%;
   box-sizing: border-box;
-  width: 60%;
+  width: 500px;
   margin: 0 auto;
   border-radius: 5px;
   border: 2px solid white;

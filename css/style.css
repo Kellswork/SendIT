@@ -59,10 +59,11 @@ header {
 }
 
 .logo {
-  width: 30%;
+  width: 50%;
+  padding-left: 5%;
   font-size: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   color: #ffc20e;
 }
 .logo a {
@@ -90,7 +91,7 @@ header {
   display: flex;
   list-style: none;
   justify-content: space-evenly;
-  width: 70%;
+  width: 50%;
 }
 
 .desktop-nav a {
