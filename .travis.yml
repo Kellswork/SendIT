@@ -8,6 +8,10 @@ global:
 dist: trusty
 services:
 - postgresql
+branches:
+except:
+- gh-pages
+- master
 before_script:
 - psql -c"create user kells with password 'kells60';" -U postgres
 - psql -c "create database sendit_testdb;" -U postgres
