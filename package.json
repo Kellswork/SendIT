@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/Kellswork/SendIT#readme",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "@babel/polyfill": "^7.2.3",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "dotenv": "^6.1.0",
