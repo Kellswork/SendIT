@@ -219,7 +219,8 @@ li.tab {
 .tab-content label[for=firstname],
 label[for=lastname],
 label[for=password],
-.tab-content label[for=email] {
+.tab-content label[for=email],label[for=username],
+label[for=phonenumber] {
   font-size: 20px;
   display: block;
   padding-bottom: 7px;
