@@ -7,7 +7,7 @@ const auth = (req, res, next) => {
   const token = req.header('x-auth-token');
   if (!token) {
     return res.status(401).json({
-      status: 401,
+      sucess: false,
       error: 'access denied, no token provided',
     });
   }
@@ -17,7 +17,7 @@ const auth = (req, res, next) => {
     next();
   } catch (error) {
     res.status(401).json({
-      status: 401,
+      sucess: false,
       error: 'authentication failed, please login again',
     });
   }
