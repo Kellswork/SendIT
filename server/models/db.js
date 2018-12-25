@@ -1,7 +1,7 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
-dotenv.load();
+dotenv.config();
 
 let pool;
 if (process.env.NODE_ENV === 'test') {
@@ -13,7 +13,6 @@ if (process.env.NODE_ENV === 'test') {
   });
 }
 console.log(process.env.NODE_ENV);
-pool.connect().then(() => console.log('connected')).catch(error => console.log(error.message));
 const db = {
   query: (text, params) => pool.query(text, params),
 };
