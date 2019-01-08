@@ -1,7 +1,7 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
-dotenv.load();
+dotenv.config();
 
 let pool;
 if (process.env.NODE_ENV === 'test') {
@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === 'test') {
     ssl: true,
   });
 }
-
 console.log(process.env.NODE_ENV);
 const db = {
   query: (text, params) => pool.query(text, params),

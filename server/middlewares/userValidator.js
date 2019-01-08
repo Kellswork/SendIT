@@ -27,7 +27,7 @@ const signupValidation = async (req, res, next) => {
     const { email } = req.body;
     const validEmail = await db.query('select * from users where email = $1', [email]);
     if (validEmail.rowCount >= 1) {
-      return res.status(400).json({
+      return res.status(409).json({
         success: false,
         error: 'email has already been registered',
       });

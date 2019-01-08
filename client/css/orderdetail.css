@@ -1,0 +1,143 @@
+.order-details {
+  width: 60%;
+  margin: 30px auto;
+}
+.order-details h2 {
+  margin-bottom: 20px;
+
+}
+.present-location,
+.pickup-info,
+.destination-info,
+.payment-info,
+.product-info,
+.status {
+  background: white;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 2px 0px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.pickup-info h3,
+.destination-info h3,
+.payment-info h3,
+.product-info h3, .status h3,
+.present-location h3 {
+  font-weight: 500;
+  border-bottom: 1px solid #8080801f;
+  text-transform: capitalize;
+
+}
+
+p span.destination-info-change {
+  float: right;
+  text-transform: uppercase;
+  color: blue;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+}
+
+.cancel-order {
+  margin-left: 25%;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width: 50%;
+  margin-top: 10px;
+  color: white;
+  background: #003468;
+  font-weight: 900;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.cancel-order:hover {
+  background: white;
+  color: #003468;
+  border: 1px solid #003468;
+
+}
+
+.order-details-footer {
+  height: 60px;
+  padding-top: 10px;
+  bottom: 0;
+  width: 100%;
+  background: #003468;
+  ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  bottom: 0;
+}
+.modal {
+  float: right;
+  width: 100%;
+  display: none;
+}
+.modal-content {
+  box-sizing: border-box;
+  width: 80%;
+  margin-left: 20%;
+  box-shadow: 1px 3px 5px 1px rgb(174, 184, 240), 1px 3px 5px 1px rgb(179, 187, 235);
+  border-radius: 5px;
+  padding: 2px;
+}
+.modal-content input {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  height: 45px;
+  margin-bottom: 5px;
+  padding: 2px;
+  box-sizing: border-box;
+  border: 1px solid #003468;
+  border: 1px solid #003468;
+}
+.modal-content input::placeholder {
+  color: rgba(0, 0, 0, 0.87);
+}
+.modal-content .close {
+  float: right;
+  width: 20px;
+  background: rgb(231, 229, 229);
+  border-radius: 5px;
+  text-align: center;
+  margin: 2px 5px 2px 0px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.close:hover {
+  background: #b4cfeb;
+}
+input:placeholder {
+  color: black;
+}
+.modal-btn {
+width: 100px;
+margin-left: 35%;
+border-radius: 5px;
+border: 1px solid #003468;
+text-transform: uppercase;
+color: white;
+font-weight: bold;
+font-size: 16px;
+margin-bottom: 5px;
+background: #003468;
+cursor: pointer;
+}
+.modal-btn:hover {
+  background: white; 
+ border: 1px solid #003468;
+ color: #003468;
+}
+@media(max-width: 760px) {
+  .order-details {
+    width: 100%;
+    margin: 0 auto;
+  }
+}

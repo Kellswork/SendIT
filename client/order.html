@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Orders | SendIT </title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/order.css">
+</head>
+
+<body>
+  <div class="order-container">
+    <header>
+      <h1 class='logo' onclick="window.location.href='index.html'">
+        Send<span>IT</span>
+      </h1>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input class='search-input' type="text" placeholder="Search..." name="search">
+          <button type="submit"><i class="fa fa-search"></i>
+        </form>
+      </div>
+      <div class="notification">
+        <div class="icon">
+          <i "javascript:void(0);" onclick="openNotification()" class="fas fa-bell"></i>
+          <div class="dropdown-notification">
+            <h3>4 New Notifications</h3>
+            <ul>
+              <li> your order #22776 has left our warehouse</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+              <li>your order #23455 has been delivered</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="profile">
+        <div class="profile-img">
+          <img src="img/avatar-2.jpg" alt="image placeholder">
+          <div class="dropdown-content">
+            <a href="createorder.html">New Order</a>
+            <a href="profile.html">Profile</a>
+            <a href="order.html">Orders</a>
+            <a href="login.html">Logout</a>
+          </div>
+        </div>
+    </header>
+        
+        
+    <div class="mobile-nav">
+        <div class="mobile-search">
+            <form action="/action_page.php">
+              <input class='search-input' type="text" placeholder="Search..." name="search">
+              <button type="submit"><i class="fa fa-search"></i>
+            </form>
+          </div>
+          <div class="mobile-link">
+              <a href="createorder.html">New Order</a>
+              <a href="profile.html">Profile</a>
+              <a href="order.html">Orders</a>
+              <a href="login.html">Logout</a>
+          </div>
+    </div>
+    <section class="box-one">
+        <h2>My Orders</h2>
+      <div class="create-order">
+        <a href="createorder.html" class="create-order-button"> New Order </a>
+      </div>
+    </section>
+
+    <section class="content">
+
+      <div class="my-order">
+       
+        <div class="order-details">
+          <table>
+            <tr>
+              <th>Order ID</th>
+              <th>Date</th>
+              <th>Price</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td><a href="orderdetail.html">#22338</a></td>
+              <td>20-12-2018</td>
+              <td>N2000</td>
+              <td>In transit</td>
+            </tr>
+            <tr>
+              <td><a href="orderdetail.html">#22983</a></td>
+              <td>20-12-2018</td>
+              <td>N2000</td>
+              <td>In transit</td>
+            </tr>
+          </table>
+          <div class="pagination">
+            <a href="#"><i class="fas fa-angle-double-right"></i></a>
+            <a href="#"><i class="fas fa-angle-double-left"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <footer class='account-footer'>
+      <p>copyright &copy; 2018 Andela boot-camp project</p>
+    </footer>
+  </div>
+
+
+  </div>
+
+  <div>
+<script src="js/script.js"></script>
+</body>
+
+</html>
