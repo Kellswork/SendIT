@@ -145,6 +145,8 @@ header li a:hover::before {
   opacity: 0.5;
 }
 
+/* error message */
+
 /* css for the login and signup pages*/
 .login-form {
   width: 100%;
@@ -501,6 +503,14 @@ label[for=weight] {
 
 .mobile-nav a:hover {
   background: #ffc20e;
+}
+#err {
+  padding: 2%;
+  color: rgba(255, 0, 0, 0.87);
+  background: #ffffff70;
+}
+#err li {
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {

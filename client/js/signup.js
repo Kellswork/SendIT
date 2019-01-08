@@ -1,7 +1,9 @@
+
 function signUp() {
   const firstName = document.querySelector('#firstname').value;
   const lastName = document.querySelector('#lastname').value;
   const userName = document.querySelector('#username').value;
+  const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   const phoneNumber = document.querySelector('#phonenumber').value;
   const url = 'http://localhost:8080/api/v1/auth/signup';
@@ -10,6 +12,7 @@ function signUp() {
     firstName,
     lastName,
     userName,
+    email,
     password,
     phoneNumber,
   };
@@ -26,11 +29,13 @@ function signUp() {
 
   return fetch(url, options)
     .then(res => res.json())
-    .then(() => console.log('data added to database'))
     .catch((error) => {
       console.log(error.message);
     });
 }
 
 const signupbtn = document.querySelector('.signupbtn');
-signupbtn.addEventListener('click', signUp);
+signupbtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  signUp();
+});
