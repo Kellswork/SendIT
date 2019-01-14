@@ -1,5 +1,6 @@
 
 function signUp() {
+  const div = document.getElementById('err');
   const firstName = document.querySelector('#firstname').value;
   const lastName = document.querySelector('#lastname').value;
   const userName = document.querySelector('#username').value;
@@ -26,12 +27,30 @@ function signUp() {
     referrer: 'no-referrer',
     body: JSON.stringify(data),
   };
+  const request = async () => {
+    const response = await fetch(url, options);
+    const json = await response.json();
+    div.innerHTML = '';
+    if (json.success === false) {
+      if (Array.isArray(json.error)) {
+        json.error.forEach((element) => {
+          const content = `<p>${element}</p>`;
+          div.style.display = 'block';
+          div.innerHTML += content;
+        });
+      } else div.innerHTML = `<p> ${json.error} </p>`;
+    }
+    if (json.success === true) {
+      div.style.display = 'none';
+      window.location.href = 'order.html';
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+    }
+    console.log(json);
+  };
 
-  return fetch(url, options)
-    .then(res => res.json())
-    .catch((error) => {
-      console.log(error.message);
-    });
+  request();
 }
 
 const signupbtn = document.querySelector('.signupbtn');

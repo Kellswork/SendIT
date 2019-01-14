@@ -508,6 +508,7 @@ label[for=weight] {
   padding: 2%;
   color: rgba(255, 0, 0, 0.87);
   background: #ffffff70;
+  display: none;
 }
 #err li {
   font-size: 16px;
