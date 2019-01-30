@@ -49,7 +49,7 @@ class User {
     const userPassword = await bcrypt.compare(password, userEmail.rows[0].password);
     if ((!userEmail.rows[0]) && (!userPassword)) {
       return res.status(400).json({
-        status: 400,
+        success: false,
         error: 'invalid email or password',
       });
     }
